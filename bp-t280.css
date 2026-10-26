@@ -1,0 +1,21 @@
+/* t280 공통: 숲 배경 뚜렷이(pv3 = 자산 메인·배당주 투자성과), 정보 위치에만 반투명 네이비 */
+body.pv3::before{background:url(assets/forest/forest-bg-tall.webp) center 20%/cover no-repeat!important;filter:brightness(1.75) saturate(1.2);opacity:1}
+body.pv3::after{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(4,14,22,0),rgba(4,14,22,.25));pointer-events:none;z-index:0}
+body.pv3 #app{background:transparent!important}body.pv3 #app>main{position:relative;z-index:1}body.pv3 .lab-bottom{z-index:30}
+body.pv3 .pv-card,body.pv3 .pv-sec{background:rgba(6,22,30,.46)!important;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.bp{padding-bottom:calc(110px + env(safe-area-inset-bottom))!important;overflow-x:hidden}
+.bp .pos{color:#5ce6b6}.bp .neg{color:#ff8a8a}
+.bp-hero .pv-big{display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bp-rt{display:block;font-size:14px;font-weight:800;margin-top:2px}.bp-hold{color:#ffd27a}
+.bp-def{margin:6px 0 10px;font-size:11px;color:#bccdca}
+.bp-kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}.bp-kv span{display:flex;flex-direction:column;gap:2px;min-width:0;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.06)}.bp-kv em{font-style:normal;font-size:11px;color:#bccdca}.bp-kv b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bp-miss{margin:8px 0 0;font-size:11px;color:#ffd27a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bp-comp h3{margin:0 0 8px;font-size:15px}
+.bp-row{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:8px;margin:8px 0}.bp-lb{font-size:12px;color:#dbe8e5}.bp-row b{font-size:12.5px;white-space:nowrap}
+.bp-track{position:relative;height:10px;border-radius:6px;background:rgba(255,255,255,.1)}.bp-mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:rgba(255,255,255,.45)}.bp-fill{position:absolute;top:0;bottom:0;border-radius:6px}.bp-fill.pos{background:linear-gradient(90deg,#11b98e,#58f4af)}.bp-fill.neg{background:linear-gradient(90deg,#ff6f7d,#ff9a9a)}
+.bp-na{grid-column:2/4;font-size:12px;color:#ffd27a}
+.bp-foot{display:flex;justify-content:flex-end}
+.bp-sel{width:100%;min-height:40px;margin:0 0 8px;border-radius:12px;background:rgba(6,22,30,.7);color:#fff;border:1px solid rgba(150,220,200,.35);padding:0 10px;font:inherit;font-size:13px}
+.bp .dv-nm{min-width:0}.bp .dv-nm b,.bp .dv-nm small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bp-more summary{cursor:pointer;font-size:12.5px;color:#7fe0c8;padding:8px 0}
+.bp-core{margin-left:auto;align-self:center;font-size:12px;font-weight:800;color:#f1d58e!important;text-decoration:none!important;white-space:nowrap}
+.bp-accs li.on a{outline:1px solid rgba(94,214,200,.5);border-radius:12px}
