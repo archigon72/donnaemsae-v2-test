@@ -1,0 +1,88 @@
+/* 투자 놀이터 · 색상 단일 소스(:root). 네이비 배경 + 대표 확정 8색 팔레트만 사용. */
+:root{color-scheme:dark;
+--c1:#FFC83D;--c2:#56B9FF;--c3:#46E5AC;--c4:#FF83AC;--c5:#B59AFF;--c6:#FFAA66;--c7:#45DCE5;--c8:#83A5FF;
+--bg:#07121F;--card:#0C1C2E;--card2:#0A1726;--field:#061220;--line:#1E3650;--line2:#163049;
+--tx:#EAF2F8;--mut:#9FB3C6;--dim:#7F93A8;
+--mint:var(--c3);--mintbg:#0F3A33;--mintline:#2A8F72;--blue:var(--c2);--bluebg:#0F2C48;--blueline:#2B6AA3;
+--warn:var(--c6);--err:var(--c4);--focus:var(--c1);--bar0:#5D7287}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;-webkit-text-size-adjust:100%}
+body{padding-bottom:calc(80px + env(safe-area-inset-bottom))}body.keyboard-open{padding-bottom:40vh}
+.uat-strip{font-size:12px;text-align:center;padding:6px;background:var(--card);color:var(--mut);border-bottom:1px solid var(--line2)}
+main{max-width:520px;margin:0 auto;padding:12px 14px}
+h1,h2{margin:0}
+button,.btn{min-height:44px;min-width:44px;border-radius:12px;border:1px solid var(--line);background:var(--card2);color:var(--tx);font-size:15px;padding:0 14px;cursor:pointer;-webkit-tap-highlight-color:transparent;font-family:inherit}
+button:disabled{opacity:.45;cursor:default}
+button[aria-pressed=true]{background:var(--mintbg);border-color:var(--mint);color:var(--tx);font-weight:700}
+input{font-family:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.note{color:var(--mut);font-size:12px;line-height:1.6;margin:8px 0 0}.warn{color:var(--warn);font-size:13px}.err{color:var(--err);font-size:13px}.status{color:var(--mut)}
+/* 대문 */
+.ph{display:flex;gap:12px;align-items:center;margin:14px 0 20px}.ph svg{flex:none;color:var(--mint)}.ph h1{font-size:26px;line-height:1.3;word-break:keep-all}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.door{position:relative;display:flex;flex-direction:column;min-height:170px;padding:18px 16px 44px;border-radius:20px;border:1px solid;text-decoration:none;color:var(--tx)}
+.door.g{background:var(--mintbg);border-color:var(--mintline)}.door.bl{background:var(--bluebg);border-color:var(--blueline)}
+.door .ic{display:flex;color:var(--mint)}.door.bl .ic{color:var(--blue)}.door h2{font-size:21px;margin:14px 0 10px;word-break:keep-all}.door p{font-size:14px;line-height:1.55;margin:0;color:var(--mut);word-break:keep-all}
+.arr{font-size:22px;color:var(--mut)}.door .arr{position:absolute;right:14px;bottom:12px}
+.learn{display:flex;align-items:center;gap:14px;min-height:72px;margin-top:12px;padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--tx);text-decoration:none}.learn .ic{display:flex;color:var(--mut)}.learn .lt{flex:1;min-width:0}.learn b{display:block;font-size:18px}.learn small{display:block;color:var(--mut);font-size:13px;margin-top:2px}
+.hnote{text-align:center;color:var(--mut);font-size:13px;margin:16px 0 0}
+@media(max-width:369px){.door{padding:16px 12px 42px}.door h2{font-size:19px}.door p{font-size:13px}}
+/* 모드 화면 */
+.back{display:inline-flex;align-items:center;min-height:44px;color:var(--mut);text-decoration:none;font-size:14px}
+.mh{display:flex;gap:12px;align-items:center;margin:2px 0 12px}.mi{flex:none;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:var(--mintbg);color:var(--mint);border:1px solid var(--mintline)}
+.mh h1{font-size:24px}.mh p{margin:4px 0 0;color:var(--mut);font-size:13px;line-height:1.5;word-break:keep-all}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:0 0 10px}
+.sh{display:flex;align-items:center;gap:8px;margin-bottom:10px;min-height:32px}.sh .no{flex:none;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--mint);color:var(--bg);font-size:13px;font-weight:800}
+.sh h2{flex:1;font-size:16px;font-weight:700}.sh h2 small{font-size:12px;font-weight:400;color:var(--mut)}
+.acts{display:flex;gap:6px}.sm{min-height:44px;padding:0 10px;font-size:13px;border-radius:10px}.ghost{background:transparent;color:var(--mut)}
+.amtrow{display:flex;align-items:center;gap:8px}.amt{flex:1;min-width:0;font-size:24px;font-weight:700;min-height:48px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--field);color:var(--tx)}.unit{color:var(--mut);font-size:14px;white-space:nowrap}
+.plus{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}.plus button{background:var(--card2);border-color:var(--line);font-weight:700}
+.pr{padding:10px 0;border-bottom:1px solid var(--line2)}.pt{display:flex;align-items:center;gap:8px}.dot{flex:none;width:10px;height:10px;border-radius:50%}
+.pn{flex:1;min-width:0}.pn b{display:block;font-size:14px;font-weight:600;word-break:keep-all}.pn small{color:var(--mut);font-size:12px}
+.x{flex:none;background:transparent;border-color:transparent;color:var(--mut);font-size:20px;padding:0}
+.pw{display:flex;align-items:center;gap:8px;margin-top:4px}.pw input[type=range]{flex:1;min-width:0;height:44px;background:transparent}.pw span{color:var(--mut);font-size:14px}
+.pw input[type=number],.rt input[type=number]{width:64px;min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--field);color:var(--tx);text-align:right;padding:0 8px;font-size:15px}
+.search{width:100%;min-height:48px;margin-top:10px;border-radius:12px;border:1px solid var(--line);background:var(--field);color:var(--tx);padding:0 12px;font-size:15px}
+[data-pick] .list{max-height:clamp(180px,calc(var(--vvh,100vh) - 150px),340px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border:1px solid var(--mintline);border-radius:14px;background:var(--card2);padding:0 12px;margin-top:6px}
+.it{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line2);min-height:56px}.it:last-child{border-bottom:0}.it .nm{flex:1;min-width:0}.it .nm b{display:block;font-size:14px;font-weight:600;word-break:keep-all}.it .nm small{color:var(--mut);font-size:12px}.it .r{color:var(--mint);font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.wavg{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--card2);border:1px solid var(--line2)}.wavg span{font-size:13px;color:var(--mut)}.wavg b{font-size:22px;color:var(--mint);font-variant-numeric:tabular-nums}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+.rate{margin-bottom:10px}.rt{display:flex;align-items:center;gap:8px;font-size:13px}.rt>span:first-child{flex:1;min-width:0}.rt small{color:var(--mut);font-size:12px}.rate input[type=range]{width:100%;height:40px;accent-color:var(--c1);background:transparent}.rate .note{margin-top:0}
+.rbox{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:10px;padding:14px 12px;border-radius:14px;background:var(--card2);border:1px solid var(--mintline)}
+.rl small{color:var(--mut);font-size:12px}.big{font-size:26px;font-weight:800;color:var(--mint);margin:4px 0 8px;font-variant-numeric:tabular-nums;word-break:keep-all}
+.kv{display:flex;justify-content:space-between;gap:6px;padding:5px 0;font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}.kv b{color:var(--tx);font-weight:700;text-align:right;white-space:nowrap}
+.chart{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:10px;min-width:0}.mult{font-size:13px;color:var(--mint);font-weight:700;text-align:center}
+.bars{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:end;min-height:130px;margin-top:4px}.bc{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px;min-width:0}
+.bc small{font-size:12px;color:var(--tx);text-align:center;word-break:keep-all;line-height:1.3}.bc i{display:block;width:70%;border-radius:6px 6px 0 0}.bc .b0{background:var(--bar0)}.bc .b1{background:var(--mint)}.bc span{font-size:12px;color:var(--mut)}
+.disc{color:var(--mut);font-size:12px;line-height:1.6;margin:10px 0 0}
+.more summary{min-height:44px;display:flex;align-items:center;color:var(--blue);font-size:13px;cursor:pointer}
+.qa ul{list-style:none;margin:0;padding:0}.qa li{border-bottom:1px solid var(--line2)}.qa li:last-child{border-bottom:0}.qa .deep{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:48px;color:var(--tx);text-decoration:none;font-size:14px;word-break:keep-all}.qa .deep span:last-child{color:var(--mut);font-size:20px}
+@media(max-width:369px){.rbox{grid-template-columns:1fr}.chart{border-left:0;border-top:1px solid var(--line);padding:10px 0 0}.big{font-size:24px}}
+@media(min-width:760px){main{max-width:880px}}
+.seg{display:grid;grid-template-columns:1fr 1.6fr;gap:6px;margin-bottom:10px}.seg button{min-height:44px;font-size:13px}
+.sm.ok{background:#46E5AC;color:#07121F;border-color:#46E5AC;font-weight:700;min-width:52px}
+.pn .rb{display:block;font-size:12px;color:var(--mut)}
+.wavg b.na{font-size:15px;color:#FFAA66}
+/* t234 검색 결과 2단: 위 이름·코드(최대 2줄), 아래 분배율·담기 */
+[data-pick] .list .it{flex-direction:column;align-items:stretch;gap:4px;min-width:0}
+[data-pick] .list .it .nm{min-width:0;width:100%}
+[data-pick] .list .it .nm b{word-break:break-all;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+[data-pick] .list .it .ac{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+[data-pick] .list .it .ac .r{flex:1 1 auto;min-width:0;text-align:left}
+[data-pick] .list .it .ac button{flex-shrink:0}
+/* t239 놀이터 전체(첫 화면·일시불·월세) 숲 배경: <body class="pg-forest"> 정적 클래스(:has 미사용, 삼성 인터넷 구버전 대응).
+   기존 숲 자산 forest-bg-tall/wide.webp, cover + position:fixed 레이어(background-attachment:fixed 미사용), 약한 딤 */
+.pg-forest::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(7,16,24,.10),rgba(7,16,24,.20) 55%,rgba(7,16,24,.34)),url(../assets/forest/forest-bg-tall.webp) center top/cover no-repeat #0b1a14}
+body.pg-forest{background:transparent;min-height:100vh;min-height:100dvh}
+.pg-forest .uat-strip{background:rgba(7,18,31,.85)}
+.pg-forest>*{position:relative;z-index:1}
+@media(min-aspect-ratio:1/1){.pg-forest::before{background-image:linear-gradient(180deg,rgba(7,16,24,.10),rgba(7,16,24,.20) 55%,rgba(7,16,24,.34)),url(../assets/forest/forest-bg-wide.webp)}}
+/* t240 상단 내비: 우측 집+연구소 대문(terms.html .portal-return-link와 동일 규격), 좌측 미끄럼틀+놀이터 */
+.pnav{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;flex-wrap:nowrap}
+.pnav a{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 4px;font-size:14px;font-weight:600;color:#dff3ec;-webkit-text-fill-color:#dff3ec;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.pnav-home svg{width:20px;height:20px;flex:none}.pnav-pg svg{flex:none}
+.pnav a:focus-visible{outline:2px solid #91cdb0;outline-offset:2px;border-radius:8px}
+/* t241 놀이터 첫 화면 제목: 작은 씨앗 아이콘+돈냄새연구소 / 큰 흰색 투자놀이터 */
+.ph.ph2{flex-direction:column;align-items:flex-start;gap:4px}.ph-brand{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--mint)}.ph.ph2 .ph-brand svg{width:18px;height:18px}.ph.ph2 h1{margin:0;color:#fff;-webkit-text-fill-color:#fff;font-size:28px}
+/* t255: 막대 트랙 고정 높이(라벨 줄바꿈과 무관한 공통 기준) */
+.bc .bt{flex:none;height:110px;width:70%;display:flex;align-items:flex-end}.bc .bt i{width:100%;flex:none}

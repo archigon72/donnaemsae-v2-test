@@ -1,0 +1,59 @@
+/* U25(2026-10-19) 용어·지표 이해하기 — 이 페이지 전용. 전역 강제다크 정책/공통 내비 미변경 */
+html body:is(#fx,*) .terms-content{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+html body:is(#fx,*) .terms-content h1{margin:12px 0 4px}
+html body:is(#fx,*) .terms-intro{margin:0 0 14px;font-size:14px;line-height:1.6;color:#c9d8de;word-break:keep-all}
+html body:is(#fx,*) .terms-nav.u25-nav{display:block;background:rgba(12,30,44,.92);border:1px solid #21414f;border-radius:16px;padding:12px 12px 6px}
+html body:is(#fx,*) .u25-nav-title{margin:0 0 6px;font-size:13px;font-weight:700;color:#9fdcc6;letter-spacing:.01em}
+html body:is(#fx,*) .u25-cat{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-top:1px solid rgba(80,120,140,.22)}
+html body:is(#fx,*) .u25-cat:first-of-type{border-top:0}
+html body:is(#fx,*) .u25-cat-name{flex:0 0 86px;padding-top:10px;font-size:12.5px;font-weight:700;color:#b9cdd5;word-break:keep-all;line-height:1.35}
+html body:is(#fx,*) .u25-chips{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+html body:is(#fx,*) .terms-nav.u25-nav a{min-height:40px;padding:4px 11px;border-radius:999px;font-size:13.5px;background:rgba(18,42,58,.95);border:1px solid #2b5263;color:#eaf3f5;line-height:1.25}
+html body:is(#fx,*) .u25-cat-h{margin:22px 2px -6px;font-size:12.5px;font-weight:700;color:#9fdcc6;letter-spacing:.02em}
+html body:is(#fx,*) .terms-content section.u25-card{padding:16px 16px 6px;margin-top:12px;scroll-margin-top:calc(84px + env(safe-area-inset-top,0px));scroll-margin-bottom:96px}
+html body:is(#fx,*) .terms-content section.u25-card h2{font-size:19px;font-weight:700;min-height:44px;margin:0}
+html body:is(#fx,*) .terms-content section.u25-card::after{top:16px;width:40px;height:40px}
+html body:is(#fx,*) .u25-sum{margin:4px 0 2px;padding-right:4px;font-size:14.5px;line-height:1.6;color:#e2ecef;word-break:keep-all}
+html body:is(#fx,*) .u25-toggle{display:flex;align-items:center;gap:6px;min-height:44px;margin:2px 0 4px;padding:0 2px;background:transparent;border:0;color:#7af0c4;font-size:13.5px;font-weight:700;cursor:pointer}
+html body:is(#fx,*) .u25-toggle::after{content:"";width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%237af0c4%22 stroke-width=%222.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E") center/contain no-repeat}
+html body:is(#fx,*) .u25-toggle[aria-expanded=true]::after{transform:rotate(180deg)}
+html body:is(#fx,*) .u25-toggle:focus-visible{outline:2px solid #7af0c4;outline-offset:2px;border-radius:8px}
+html body:is(#fx,*) .u25-detail{border-top:1px solid rgba(80,120,140,.25);padding:4px 0 10px}
+html body:is(#fx,*) .u25-detail[hidden]{display:none}
+html body:is(#fx,*) .u25-block{margin-top:12px}
+html body:is(#fx,*) .terms-content .u25-block h3{margin:0 0 4px;font-size:13.5px;font-weight:700;color:#8fe3c6}
+html body:is(#fx,*) .terms-content .u25-block .term-detail-copy{margin-top:2px;font-size:14px;line-height:1.7;color:#dbe7ec;white-space:normal}
+html body:is(#fx,*) .terms-content .u25-block .term-detail-copy strong{font-weight:700;color:#f3f8f9}
+html body:is(#fx,*) .terms-content .u25-block ul.term-detail-copy{padding-left:18px;margin:2px 0 0}
+html body:is(#fx,*) .terms-content .u25-block li{margin-top:4px}
+html body:is(#fx,*) .u25-caution{padding:10px 12px 10px 38px;position:relative;background:rgba(255,255,255,.04);border:1px solid #2a4658;border-radius:12px}
+html body:is(#fx,*) .u25-caution::before{content:"";position:absolute;left:12px;top:11px;width:17px;height:17px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23fcd34d%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1.1 1.3 1.1 2.2h5c0-.9.5-1.7 1.1-2.2A6 6 0 0 0 12 3z%22/%3E%3C/svg%3E") center/contain no-repeat}
+html body:is(#fx,*) .terms-content .u25-caution h3{color:#fde68a}
+html body:is(#fx,*) .terms-content .u25-caution .term-detail-copy{color:#d3e0e6;font-size:13.5px}
+@media (min-width:761px){html body:is(#fx,*) .u25-cat-name{flex-basis:120px}}
+/* U25-2(2026-10-19) 최종 시안: 상단 분석 탭 미렌더(마크업 제거), 히어로·책 아이콘, 아코디언 헤더, 노란 주의 구획. 이 페이지 전용 */
+html body:is(#fx,*) .terms-content .u252-back{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;font-size:14.5px;font-weight:700;color:#7af0c4;text-decoration:none}
+html body:is(#fx,*) .u252-hero{position:relative;display:flex;align-items:center;gap:12px;margin:4px 0 14px;padding:18px 16px;border-radius:18px;border:1px solid #1f4a4f;background:radial-gradient(120% 140% at 100% 0%,rgba(122,240,196,.16),rgba(122,240,196,0) 55%),linear-gradient(160deg,#0d2233,#0a1a28)}
+html body:is(#fx,*) .u252-hero-text{flex:1;min-width:0}
+html body:is(#fx,*) .u252-hero h1{margin:0 0 6px;font-size:25px;line-height:1.25;color:#f2f6f8;word-break:keep-all}
+html body:is(#fx,*) .u252-hero .terms-intro{margin:0;font-size:14px;color:#c9d8de}
+html body:is(#fx,*) .u252-book{flex:0 0 64px;width:64px;height:64px;border-radius:18px;border:1px solid rgba(122,240,196,.4);background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M24 13c-4-3-10-3.5-15-2.5v25c5-1 11-.5 15 2.5 4-3 10-3.5 15-2.5v-25c-5-1-11-.5-15 2.5z%22 stroke=%22%237af0c4%22 stroke-width=%222.2%22/%3E%3Cpath d=%22M24 13v25%22 stroke=%22%237af0c4%22 stroke-width=%222.2%22/%3E%3Cpath d=%22M28 30l3-4 3 2 3-5%22 stroke=%22%23fcd34d%22 stroke-width=%222%22/%3E%3C/svg%3E") center/46px no-repeat,linear-gradient(rgba(122,240,196,.1),rgba(122,240,196,.1))}
+html body:is(#fx,*) .terms-content section.u25-card{padding:0;margin-top:10px;overflow:hidden}
+html body:is(#fx,*) .terms-content section.u25-card::after{content:none;display:none}
+html body:is(#fx,*) .terms-content section.u25-card h2.u252-h{margin:0;padding:0;min-height:0;display:block;font-size:inherit}
+html body:is(#fx,*) .u252-head{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;margin:0;padding:12px 14px;background:transparent;border:0;text-align:left;cursor:pointer;color:inherit;font:inherit}
+html body:is(#fx,*) .u252-head:focus-visible{outline:2px solid #7af0c4;outline-offset:-3px;border-radius:16px}
+html body:is(#fx,*) .u252-ico{flex:0 0 40px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(122,240,196,.35);background:var(--fx-ico) center/22px no-repeat,linear-gradient(rgba(122,240,196,.08),rgba(122,240,196,.08))}
+html body:is(#fx,*) .u252-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+html body:is(#fx,*) .u252-name{font-size:17px;font-weight:800;line-height:1.3;color:#f2f6f8}
+html body:is(#fx,*) .u252-head .u25-sum{margin:0;font-weight:400;padding:0;font-size:13.5px;line-height:1.45;color:#c9d8de;word-break:keep-all}
+html body:is(#fx,*) .u252-state{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+html body:is(#fx,*) .u252-chev{flex:0 0 22px;width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%237af0c4%22 stroke-width=%222.4%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E") center/18px no-repeat;transition:transform .15s}
+html body:is(#fx,*) .u25-toggle.u252-head::after{content:none;display:none}
+html body:is(#fx,*) .u252-head[aria-expanded=true] .u252-chev{transform:rotate(180deg)}
+html body:is(#fx,*) section.u25-card.is-open{border-color:rgba(122,240,196,.45)}
+html body:is(#fx,*) section.u25-card .u25-detail{margin:0 14px;padding:2px 0 14px}
+html body:is(#fx,*) .u25-caution{background:linear-gradient(rgba(252,211,77,.08),rgba(252,211,77,.08));border:1px solid rgba(252,211,77,.38)}
+html body:is(#fx,*) .terms-content .u25-caution .term-detail-copy{color:#f1e6c2}
+html body:is(#fx,*) .terms-content section.u25-card{scroll-margin-top:calc(64px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html body:is(#fx,*) .u252-chev{transition:none}}

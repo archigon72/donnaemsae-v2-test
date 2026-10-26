@@ -1,0 +1,38 @@
+/* t258 중간 대문 3종(투자 놀이터·내 자산관리·종목분석) 승인 시안 반영 — 표시 전용. 팔레트: #46E5AC #56B9FF #FFC83D #B59AFF, 네이비 배경 */
+/* 투자 놀이터 */
+.ph.ph2{position:relative;padding-right:132px;min-height:190px}
+.ph.ph2 h1{font-size:30px;letter-spacing:-.5px;margin:6px 0 12px}
+.ph2 .ph-lead{margin:0;font-size:15.5px;line-height:1.7;color:#46E5AC;-webkit-text-fill-color:#46E5AC;text-shadow:0 1px 4px rgba(2,10,16,.9);word-break:keep-all}
+.ph2 .ph-art{position:absolute;right:0;top:4px;width:128px;height:128px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(70,229,172,.25));pointer-events:none}
+.doors{grid-template-columns:1fr!important;gap:14px!important}
+.doors .door{flex-direction:row;align-items:center;gap:16px;min-height:112px;padding:18px 48px 18px 18px;border-width:1.5px;box-shadow:0 0 22px rgba(70,229,172,.16),inset 0 0 18px rgba(70,229,172,.06)}
+.doors .door.bl{box-shadow:0 0 22px rgba(86,185,255,.16),inset 0 0 18px rgba(86,185,255,.06)}
+.doors .door .ic{flex:none;align-items:center;justify-content:center;width:58px;height:58px;border-radius:16px;border:1px solid rgba(70,229,172,.45);background:rgba(70,229,172,.10)}
+.doors .door.bl .ic{border-color:rgba(86,185,255,.45);background:rgba(86,185,255,.10)}
+.doors .door .dt{display:flex;flex-direction:column;min-width:0}
+.doors .door h2{margin:0 0 6px;font-size:23px}
+.doors .door.g p{color:#46E5AC}.doors .door.bl p{color:#56B9FF}
+.doors .door .arr{right:16px;bottom:auto;top:50%;transform:translateY(-50%)}
+.doors .door.g .arr{color:#46E5AC}.doors .door.bl .arr{color:#56B9FF}
+a.learn{margin-top:14px;min-height:84px}a.learn .ic{width:50px;height:50px;align-items:center;justify-content:center;border-radius:14px;border:1px solid #213B4B;background:rgba(16,38,56,.6)}
+@media(max-width:369px){.ph.ph2{padding-right:100px}.ph2 .ph-art{width:96px;height:96px}.doors .door h2{font-size:20px}}
+/* 내 자산관리 */
+body.asset-hub .asset-branch{border:1.5px solid rgba(var(--ac-rgb),.55)!important;box-shadow:0 0 20px rgba(var(--ac-rgb),.16),inset 0 0 16px rgba(var(--ac-rgb),.05)!important;padding:16px 16px 16px 18px}
+body.asset-hub .asset-branch:after{display:none}
+body.asset-hub .asset-branch:nth-child(1){--ac:#46E5AC;--ac-rgb:70,229,172}
+body.asset-hub .asset-branch:nth-child(2){--ac:#FFC83D;--ac-rgb:255,200,61}
+body.asset-hub .asset-branch:nth-child(3){--ac:#56B9FF;--ac-rgb:86,185,255}
+body.asset-hub .asset-branch:nth-child(4){--ac:#B59AFF;--ac-rgb:181,154,255;background:radial-gradient(110% 90% at 100% 0,rgba(181,154,255,.18),transparent 62%),linear-gradient(150deg,rgba(16,38,56,.95),rgba(16,38,56,.95))!important}
+body.asset-hub .asset-branch h2{margin:0 0 4px}
+body.asset-hub .asset-branch p{color:rgba(var(--ac-rgb),.9)!important}
+body.asset-hub .asset-branch b{color:var(--ac)!important;margin-top:4px}
+body.asset-hub .asset-branch:hover,body.asset-hub .asset-branch:focus-visible{border-color:var(--ac)!important;outline-color:var(--ac)!important}
+/* 종목분석 */
+body[data-view="analysis-hub"] .entry-heading h1{font-size:30px;letter-spacing:-.5px}
+body[data-view="analysis-hub"] .analysis-branches .branch-card{padding:20px 18px 20px 86px;border:1.5px solid rgba(70,229,172,.5);box-shadow:0 0 20px rgba(70,229,172,.14)}
+body[data-view="analysis-hub"] .analysis-branches .branch-card::after{left:18px;right:auto;top:20px;width:52px;height:52px}
+body[data-view="analysis-hub"] .analysis-branches .branch-card h2{margin:0 0 4px}
+body[data-view="analysis-hub"] .analysis-branches .branch-card:nth-child(2){border-color:rgba(86,185,255,.5);box-shadow:0 0 20px rgba(86,185,255,.14)}
+body[data-view="analysis-hub"] .analysis-branches .branch-card:nth-child(2)::after{border-color:rgba(86,185,255,.45);background-color:rgba(86,185,255,.10);filter:hue-rotate(45deg)}
+body[data-view="analysis-hub"] .analysis-branches .branch-card:nth-child(2)>b{background:rgba(86,185,255,.12);border-color:rgba(86,185,255,.45);color:#56B9FF}
+@media(max-width:369px){body[data-view="analysis-hub"] .analysis-branches .branch-card{padding-left:78px}}

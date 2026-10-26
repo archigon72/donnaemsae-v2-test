@@ -1,0 +1,25 @@
+/* v2-stage1: 01 관리 중간대문 시안 정합 (asset-hub.html 전용) */
+body.asset-hub .hub-logo{position:fixed;top:0;left:16px;z-index:101;height:44px;display:flex;align-items:center;gap:6px;font-size:15px;font-weight:800;letter-spacing:-.2px;color:#5ef0a8!important;-webkit-text-fill-color:#5ef0a8!important;text-decoration:none}
+body.asset-hub .hub-logo:before{content:"";width:20px;height:20px;background:url(assets/forest/sprout-mark.webp) center/contain no-repeat}
+body.asset-hub .asset-hub-heading h1{font-size:30px!important;font-weight:800;color:#fff!important;-webkit-text-fill-color:#fff!important;margin:4px 0 10px!important}
+body.asset-hub .asset-hub-heading p{color:#f1f5f4!important;-webkit-text-fill-color:#f1f5f4!important;font-size:14.5px}
+body.asset-hub .asset-branches{gap:14px!important}
+body.asset-hub .asset-branch{grid-template-columns:44px minmax(0,1fr)!important;column-gap:12px!important;padding:16px 12px 16px 14px!important;border:1.5px solid rgba(var(--ac-rgb),.85)!important;box-shadow:0 0 14px rgba(var(--ac-rgb),.38),inset 0 0 18px rgba(var(--ac-rgb),.10),0 10px 24px rgba(0,0,0,.35)!important}
+body.asset-hub .asset-branch:after{display:none}
+body.asset-hub .asset-branch:before{left:14px!important;top:16px!important;width:44px!important;height:44px!important;border-color:rgba(var(--ac-rgb),.7)!important}
+body.asset-hub .asset-branch>img{width:44px!important;height:44px!important}
+body.asset-hub .asset-branch:nth-child(1){--ac:#5ef0a8;--ac-rgb:94,240,168}
+body.asset-hub .asset-branch:nth-child(2){--ac:#f6a63c;--ac-rgb:246,166,60}
+body.asset-hub .asset-branch:nth-child(3){--ac:#4fb4ff;--ac-rgb:79,180,255}
+body.asset-hub .asset-branch:nth-child(4){--ac:#a99bff;--ac-rgb:169,155,255}
+body.asset-hub .asset-branch h2{font-size:19px!important;color:#fff!important;-webkit-text-fill-color:#fff!important;margin:2px 0 4px!important}
+body.asset-hub .asset-branch p{font-size:12.5px!important;letter-spacing:-.35px;white-space:nowrap;overflow:hidden;text-overflow:clip;color:#e8eeec!important;-webkit-text-fill-color:#e8eeec!important;margin:0 0 10px!important}
+body.asset-hub .asset-branch b{color:var(--ac)!important;-webkit-text-fill-color:var(--ac)!important;background:rgba(var(--ac-rgb),.10)!important;border-color:rgba(var(--ac-rgb),.75)!important}
+body.asset-hub .hub-foot{position:relative;margin:18px 0 0;height:170px;overflow:hidden}
+body.asset-hub .hub-foot img{position:absolute;left:0;bottom:0;height:170px;width:auto;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 55%,#000 45%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 55%,#000 45%,transparent 100%)}
+body.asset-hub .hub-foot p{position:absolute;right:22px;top:38px;margin:0;font-size:16px;line-height:1.55;font-weight:600;text-align:left;color:#fff!important;-webkit-text-fill-color:#fff!important;text-shadow:0 2px 6px #000}
+@media(min-width:380px){body.asset-hub .asset-branch p{font-size:13px!important;letter-spacing:-.3px}}
+@media(min-width:420px){body.asset-hub .asset-branch p{font-size:13.5px!important}}
+@media(min-width:700px){body.asset-hub .hub-foot{margin:22px 0 0;border-radius:18px}}
+/* t269 01: 숲 배경 소폭 어둡게(CSS만, 이미지 변경 없음) */
+body.garden.asset-hub{background:linear-gradient(180deg,rgba(4,10,16,.46) 0,rgba(4,10,16,.72) 240px,rgba(5,13,20,.93) 520px,#061019 820px) top center/100% 100% no-repeat,url(assets/mock/page-bg.webp) top center/max(100%,520px) auto no-repeat,#061019!important;background-attachment:scroll!important}

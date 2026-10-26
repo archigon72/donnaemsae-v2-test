@@ -1,0 +1,92 @@
+/* v2-stage1 02 거래 등록·수정 (목업 02 배치) */
+body.mu .tv2 #trade-form{display:flex;flex-direction:column;gap:12px}
+body.mu .tv2 #trade-form .tv2-hidden,body.mu .tv2 #trade-form [hidden]{display:none!important}
+body.mu #trade-form .tv2-panel{border:1px solid rgba(110,200,190,.28);border-radius:16px;padding:12px;background:rgba(8,22,26,.55)}
+body.mu #trade-form .tv2-row{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px;align-items:start;padding:7px 0}
+body.mu #trade-form .tv2-mode{border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:12px;margin-bottom:4px}
+body.mu #trade-form .tv2-lab{font-size:13.5px;font-weight:700;color:#e9f2f1!important;-webkit-text-fill-color:#e9f2f1!important;padding-top:9px;word-break:keep-all}
+body.mu #trade-form .tv2-ctl{min-width:0}
+body.mu #trade-form .tv2-seg{display:grid;gap:6px}
+body.mu #trade-form .tv2-seg2{grid-template-columns:1fr 1fr}
+body.mu #trade-form .tv2-seg4{grid-template-columns:repeat(4,minmax(0,1fr))}
+body.mu #trade-form .tv2-seg button,body.mu .tv2 #trade-form .mu-seg button{min-height:38px;padding:4px 2px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04);font-size:12.5px;font-weight:600;letter-spacing:-.4px;white-space:nowrap;overflow:hidden;color:#e6eeee!important;-webkit-text-fill-color:#e6eeee!important}
+body.mu #trade-form .tv2-seg button[aria-pressed="true"],body.mu .tv2 #trade-form .mu-seg button[aria-pressed="true"]{border-color:#3fe0b0;background:rgba(40,200,150,.16);color:#5ef0c0!important;-webkit-text-fill-color:#5ef0c0!important;box-shadow:0 0 10px rgba(63,224,176,.3)}
+body.mu #trade-form .tv2-seg button:disabled{opacity:.45}
+body.mu #trade-form .tv2-hint{margin:6px 0 0;font-size:11.5px;line-height:1.45;color:#a9bab8!important;-webkit-text-fill-color:#a9bab8!important;word-break:keep-all}
+body.mu .tv2 #trade-form input,body.mu .tv2 #trade-form select{min-height:40px;font-size:15px}
+body.mu #trade-form .tv2-man{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:6px}
+body.mu #trade-form .tv2-man input{width:100%;box-sizing:border-box;border-radius:10px;padding:0 10px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.25);color:#fff}
+body.mu #trade-form .tv2-man-ok{grid-column:1/-1;min-height:38px;border-radius:10px;border:1px solid #3fe0b0;background:rgba(40,200,150,.12);color:#5ef0c0!important;-webkit-text-fill-color:#5ef0c0!important;font-weight:700}
+body.mu #trade-form .tv2-block+.tv2-block{margin-top:12px}
+body.mu #trade-form .tv2-h{margin:0 0 8px;font-size:14px;font-weight:700;color:#fff!important;-webkit-text-fill-color:#fff!important}
+body.mu .tv2 #trade-form .mu-seg{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+body.mu #trade-form .tv2-grid{display:grid;grid-template-columns:1.25fr .8fr 1fr;gap:6px}
+body.mu #trade-form .tv2-cell{min-width:0;border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:5px 7px;background:rgba(0,0,0,.2)}
+body.mu #trade-form .tv2-cell>span{display:block;font-size:11px;color:#a9bab8!important;-webkit-text-fill-color:#a9bab8!important;white-space:nowrap}
+body.mu #trade-form .tv2-cell label{display:block;min-width:0}
+body.mu #trade-form .tv2-cell input{width:100%;min-width:0;box-sizing:border-box;border:0!important;background:transparent!important;padding:0!important;min-height:30px;font-size:15px;font-weight:700}
+body.mu #trade-form .tv2-cell .mu-unit{display:flex;align-items:center}
+body.mu #trade-form .tv2-cell .mu-unit i{font-style:normal;font-size:13px;margin-left:2px}
+body.mu #trade-form .tv2-extra:empty,body.mu #trade-form .tv2-ref:empty{display:none}
+body.mu #trade-form .tv2-extra{margin-top:8px}
+body.mu #trade-form .tv2-extra .mu-qty-head{display:none}
+body.mu #trade-form .tv2-ref{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11.5px}
+body.mu .tv2 #trade-form .mu-result{margin-top:10px}
+@media(max-width:380px){
+body.mu #trade-form .tv2-row{grid-template-columns:66px minmax(0,1fr)}
+body.mu #trade-form .tv2-lab{font-size:12.5px}
+body.mu #trade-form .tv2-seg button,body.mu .tv2 #trade-form .mu-seg button{font-size:11.5px;letter-spacing:-.6px}
+body.mu .tv2 #trade-form .mu-seg{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.mu #trade-form .tv2-grid{grid-template-columns:1fr 1fr}
+body.mu #trade-form .tv2-c-date{grid-column:1/-1}
+}
+@media(min-width:381px) and (max-width:440px){
+body.mu .tv2 #trade-form .mu-seg{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+/* 04 매도 완료 종목 이력 */
+.lv2-sold{margin-top:12px;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 12px;background:rgba(0,0,0,.2)}
+.lv2-sold summary{cursor:pointer;font-size:14px;font-weight:700;color:#dfe8e7!important;-webkit-text-fill-color:#dfe8e7!important}
+.lv2-sold summary b{margin-left:4px;color:#f6a63c!important;-webkit-text-fill-color:#f6a63c!important}
+.lv2-sold summary small{display:block;font-weight:400;font-size:11.5px;color:#9fb0bb!important;-webkit-text-fill-color:#9fb0bb!important}
+.lv2-sold .lv2-list{margin-top:8px;opacity:.85}
+/* 밀도 보정: 입력칸 글꼴 16px은 iOS 확대 방지로 유지 */
+body.mu .tv2 #trade-form .tv2-row{grid-template-columns:64px minmax(0,1fr);gap:6px}
+body.mu .tv2 #trade-form .tv2-lab{font-size:13px}
+body.mu .tv2 #trade-form .tv2-hint,body.mu .tv2 #trade-form #uat-acct-type,body.mu .tv2 #trade-form #holding-trade-note{font-size:11.5px!important;line-height:1.45!important;font-weight:400!important}
+body.mu .tv2 #trade-form #uat-acct-type,body.mu .tv2 #trade-form #holding-trade-note{margin:6px 0 0!important;padding:6px 8px!important;border-radius:8px!important}
+body.mu .tv2 #trade-form .tv2-seg2 button{font-size:13.5px}
+body.mu .tv2 #trade-form .tv2-seg4 button{font-size:12px;padding:3px 1px;letter-spacing:-.6px;white-space:normal;line-height:1.15;word-break:keep-all}
+body.mu .tv2 #trade-form .tv2-kind .tv2-seg4 button{min-height:40px}
+body.mu .tv2 #trade-form .mu-seg button{min-height:38px;font-size:13px}
+body.mu .tv2 #trade-form .tv2-ctl input:not([type=range]):not([type=checkbox]),body.mu .tv2 #trade-form .tv2-ctl select{height:42px;min-height:42px}
+body.mu .tv2 #trade-form .tv2-cell input:not([type=range]):not([type=checkbox]){height:32px!important;min-height:32px!important;padding:0!important;border:0!important;background:transparent!important}
+body.mu .tv2 #trade-form #uat-picked:not(.none){margin:6px 0 0!important;padding:6px 10px!important;gap:2px 8px}
+body.mu .tv2 #trade-form #uat-picked .uat-picked-k{display:none}
+body.mu .tv2 #trade-form #uat-picked .uat-picked-n{font-size:13.5px}
+body.mu .tv2 #trade-form #uat-picked.none{font-size:12px!important}
+body.mu .tv2 #trade-form .tv2-panel{padding:10px}
+body.mu .tv2 #trade-form .mu-result{padding:10px 12px!important}
+body.mu .tv2 #trade-form .tv2-grid{grid-template-columns:1.5fr .8fr 1fr}
+@media(max-width:380px){body.mu .tv2 #trade-form .tv2-row{grid-template-columns:56px minmax(0,1fr)}body.mu .tv2 #trade-form .tv2-lab{font-size:12px}body.mu .tv2 #trade-form .tv2-grid{grid-template-columns:1fr 1fr}body.mu .tv2 #trade-form .tv2-c-date{grid-column:1/-1}}
+@media(min-width:420px){body.mu .tv2 #trade-form .tv2-seg4 button{white-space:nowrap}}
+body.mu .tv2 #trade-form input[name=code_search][hidden]{display:none!important}
+body.mu .tv2 #trade-form .tv2-lock .uat-clear{display:none!important}
+body.mu .tv2 #trade-form .tv2-ref button{min-height:30px!important;height:30px;padding:0 10px!important;font-size:12px!important}
+
+/* t271 Q4: 글꼴 강제 축소·자간 압축 해제(입력 16px 유지), 여백만 정리 / Q3 증권사 목록 / Q2 해외 가격 라벨 */
+body.mu .tv2 #trade-form .tv2-seg button,body.mu .tv2 #trade-form .tv2-seg4 button,body.mu .tv2 #trade-form .mu-seg button{font-size:13px!important;letter-spacing:0!important}
+body.mu .tv2 #trade-form .tv2-seg4 button{white-space:normal;line-height:1.2;padding:4px 2px}
+body.mu .tv2 #trade-form .tv2-lab{font-size:13px!important}
+body.mu .tv2 #trade-form .tv2-hint,body.mu .tv2 #trade-form #uat-acct-type,body.mu .tv2 #trade-form #holding-trade-note,body.mu .tv2 #trade-form #uat-picked.none{font-size:12.5px!important}
+body.mu .tv2 #trade-form .tv2-cell>span{font-size:12px}
+body.mu .tv2 #trade-form .tv2-off{display:none!important}
+body.mu .tv2 #trade-form .tv2-brk{display:block}
+body.mu .tv2 #trade-form #new-account-label{display:block;margin-top:6px}
+body.mu .tv2 #trade-form .tv2-os .tv2-grid{grid-template-columns:1fr 1fr}
+body.mu .tv2 #trade-form .tv2-os .tv2-c-price{grid-column:1/-1}
+body.mu .tv2 #trade-form .tv2-cell>span{white-space:normal}
+body.mu .tv2 #trade-form .tv2-row{padding:5px 0}
+@media(max-width:380px){body.mu .tv2 #trade-form .tv2-row{grid-template-columns:60px minmax(0,1fr)}body.mu .tv2 #trade-form .tv2-seg4{grid-template-columns:1fr 1fr}}
+@media(min-width:381px) and (max-width:419px){body.mu .tv2 #trade-form .tv2-seg4 button{font-size:13px!important}}
+body.mu .tv2 #trade-form .tv2-nlab{display:block;margin:2px 0 4px;font-size:12.5px;color:#cfdcda!important;-webkit-text-fill-color:#cfdcda!important}
+body.mu .tv2 #trade-form .tv2-nlab small{font-size:12px;color:#9fb0bb!important;-webkit-text-fill-color:#9fb0bb!important}

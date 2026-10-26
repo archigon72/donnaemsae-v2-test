@@ -1,0 +1,2 @@
+/* 놀이터 후보 사본 전용: QA 12px 기준만 보정(원본 194-test 11px) */#entry-results .entry-result small{font-size:12px}
+/* t224: 목록창 높이 제한·내부 스크롤(키보드 시 visualViewport 높이 기준) */#entry-results{max-height:clamp(180px,calc(var(--vvh,100vh) - 150px),310px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;border-radius:16px}

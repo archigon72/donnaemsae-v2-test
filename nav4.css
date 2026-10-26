@@ -1,0 +1,12 @@
+/* t241 공통 하단 내비 4탭(홈|분석|관리|놀이터). 놀이터 아이콘 = 통합 대문 투자 놀이터 카드 아이콘(플라스크+사다리) 단색 마스크. */
+.service-bottom a.nav-pg,.mc-nav a.nav-pg,body.garden.mc .mc-nav a.nav-pg,body.has-service-bottom .service-bottom a.nav-pg{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6h14M24 6v14L12 46a6 6 0 0 0 5.5 8.5h19A6 6 0 0 0 42 46L30 20V6' stroke-width='4.2'/%3E%3Cpath d='M15.5 40h23l3 6.5a5 5 0 0 1-4.6 7H17.1a5 5 0 0 1-4.6-7z' fill='%23000' stroke='none'/%3E%3Cpath d='M44 16l12 40M50 12l12 40M45.8 22.5l6-1.6M48 30.5l6-1.6M50.2 38.5l6-1.6M52.4 46.5l6-1.6' stroke-width='3.6'/%3E%3C/svg%3E")}
+body.mu .lab-bottom{grid-template-columns:repeat(4,1fr)!important}
+.lab-bottom a,.service-bottom a{white-space:nowrap}
+.lab-bottom:not(.mc-nav){gap:6px!important}
+.lab-bottom:not(.mc-nav) a{min-width:0!important;padding-left:8px!important;padding-right:8px!important}
+/* 내 자산관리 큰 제목: 초록 → 흰색 */
+html body .asset-hub-heading h1{color:#fff!important;-webkit-text-fill-color:#fff!important}
+/* 놀이터 영역(pg-nav.js) 하단 내비: 후보 사본의 내비 숨김 규칙보다 우선 */
+body.has-service-bottom nav.service-bottom.pg-bottom{display:flex!important}
+body.has-service-bottom nav.pg-bottom a{color:#e9f0f2!important;-webkit-text-fill-color:#e9f0f2!important}
+body.has-service-bottom nav.pg-bottom a.active{color:#7af0c4!important;-webkit-text-fill-color:#7af0c4!important}

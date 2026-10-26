@@ -1,0 +1,64 @@
+/* t138 UAT 전용 고정 팔레트 토큰 (account-uat 페이지에서만 로드) */
+:root{--fd-bg:#081521;--fd-surface:#102638;--fd-surface-raised:#193448;--fd-surface-soft:#213B4B;--fd-border:#385465;--fd-text:#EFF6F8;--fd-text-muted:#AEC0CB;--fd-text-subtle:#8CA4B3;--fd-primary:#A7DEC9;--fd-primary-strong:#317C69;--fd-on-primary:#09251E;--fd-complete:#9DCFF3;--fd-expected:#F5D39A;--fd-scheduled:#F0B9D0;--fd-exdate:#97DFCA;--fd-unconfirmed:#BBC9D5;--fd-warning:#E9B6A8;--fd-error:#E9A8B1;--fd-focus:#B4E3FC}
+/* ── 미래배당 3화면 ── */
+body.fd-body{--fdbg:var(--fd-bg);background:var(--fd-bg)!important}
+.fd{--bg:var(--fd-bg);--card:var(--fd-surface);--card2:var(--fd-surface-raised);--line:var(--fd-border);--tx:var(--fd-text);--mute:var(--fd-text-muted);--gold:var(--fd-expected);--blue:var(--fd-complete);--pink:var(--fd-scheduled);--mint:var(--fd-exdate);--gray:var(--fd-unconfirmed)}
+.fd :focus-visible{outline:2px solid var(--fd-focus);outline-offset:2px}
+.fd-tabs a.on{color:var(--fd-primary);border-color:var(--fd-primary)}
+.fd-accts{flex-wrap:wrap;overflow-x:visible}
+.fd-chip{flex:0 1 auto;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left;background:var(--fd-surface);color:var(--fd-text-muted);border-color:var(--fd-border)}
+.fd-chip.on,.fd-cal-mode button.on{background:var(--fd-surface-raised);color:var(--fd-primary);border-color:var(--fd-primary)}
+.fd-seg button{color:var(--fd-text-muted)}
+.fd-seg button.on{background:var(--fd-surface-raised);color:var(--fd-primary);box-shadow:0 0 0 1px var(--fd-primary) inset}
+.fd-year button,.fd-mnav button{color:var(--fd-text)}
+.fd-today,.fd-filt button{background:var(--fd-surface-raised);color:var(--fd-text);border-color:var(--fd-border)}
+.fd-hero{background:var(--fd-surface)}
+.fd-big{color:var(--fd-expected)}
+.fd-note{background:var(--fd-surface-soft);color:var(--fd-text-muted);border-color:var(--fd-border)}
+.dot.done{background:var(--fd-complete)}.dot.scheduled{background:var(--fd-scheduled)}.dot.forecast{background:var(--fd-expected)}.dot.ex{background:var(--fd-exdate)}.dot.unconfirmed{background:var(--fd-unconfirmed)}.dot.held{background:var(--fd-text-subtle)}
+.fd-bar .stack{background:var(--fd-surface-soft)}
+.fd-bar.sel .stack{outline-color:var(--fd-primary)}.fd-bar.sel .v{color:var(--fd-expected)}
+.fd-row .r b{color:var(--fd-complete)}
+.fd-msel{background:var(--fd-surface-raised);border-color:var(--fd-primary)}
+.fd-badge{background:var(--fd-surface-raised)!important;color:var(--fd-unconfirmed);border:1.5px solid currentColor}
+.fd-badge.done{color:var(--fd-complete)}.fd-badge.scheduled{color:var(--fd-scheduled)}.fd-badge.unconfirmed{color:var(--fd-unconfirmed)}.fd-badge.held{color:var(--fd-text-subtle)}.fd-badge.ex{color:var(--fd-exdate)}.fd-badge.forecast{color:var(--fd-expected)}
+.fd-tag{background:var(--fd-surface-raised)!important}
+.fd-tag.gen{color:var(--fd-complete);border-color:var(--fd-complete)}.fd-tag.def{color:var(--fd-expected);border-color:var(--fd-expected)}
+.fd-prog{background:var(--fd-surface-soft)}
+.fd-ico{color:var(--fd-on-primary)}
+.fd-cell{background:var(--fd-surface);border-color:var(--fd-border)}
+.fd-cell.sel{border-color:var(--fd-primary);box-shadow:0 0 0 1px var(--fd-primary) inset}.fd-cell.tod{border-color:var(--fd-focus)}
+.fd-cell .sm.done{color:var(--fd-complete)}.fd-cell .sm.scheduled{color:var(--fd-scheduled)}.fd-cell .sm.unconfirmed{color:var(--fd-unconfirmed)}.fd-cell .sm.forecast{color:var(--fd-expected)}
+.fd-cell.est{border-style:dashed;border-color:var(--fd-warning)}.fd-est{color:var(--fd-warning)}
+.fd a.lnk{color:var(--fd-primary)}
+.fd-acc b{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+.fd-item .nm{white-space:normal;overflow-wrap:anywhere}
+/* ── 관리 화면: 계좌 라벨 줄바꿈(잘림 금지) ── */
+.acct-lab{display:inline;max-width:100%}
+.acct-nm{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+/* ── 거래 등록 시트: 제목/닫기 고정 ── */
+#ledger-dialog.mu-sheet{max-height:min(94vh,calc(var(--uat-vvh,100dvh) - 8px));background:var(--fd-surface);scroll-padding-top:84px}
+#ledger-dialog>.dialog-close-lab{position:sticky!important;top:0;float:right;z-index:6;margin:-8px -4px 0 8px;background:var(--fd-surface-raised);color:var(--fd-text);border:1px solid var(--fd-border)}
+#ledger-dialog>h2{position:sticky;top:-24px;z-index:5;background:var(--fd-surface);margin:-24px -16px 4px!important;padding:22px 64px 10px 16px;border-bottom:1px solid var(--fd-border)}
+#ledger-dialog.mu-sheet::before{position:relative;z-index:7}
+#ledger-dialog :focus-visible{outline:2px solid var(--fd-focus);outline-offset:2px}
+.uat-scope-note{display:block!important;margin:6px 0 0;padding:8px 10px;border-radius:10px;border:1.5px solid var(--fd-primary);background:var(--fd-surface-raised);color:var(--fd-text);font-size:14px!important;font-weight:600;line-height:1.45}
+.uat-scope-note.warn{border-color:var(--fd-warning);color:var(--fd-warning)}
+.uat-picked{margin:6px 0 0;font-size:14px;color:var(--fd-primary);font-weight:700;overflow-wrap:anywhere}
+.uat-picked.none{color:var(--fd-warning)}
+.uat-acct-type{margin:6px 0 0;padding:8px 10px;border-radius:10px;background:var(--fd-surface-raised);border:1px solid var(--fd-border);color:var(--fd-text);font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+.uat-acct-type b{color:var(--fd-primary)}
+.uat-search-wrap{position:relative;display:block}
+.uat-search-wrap input{padding-right:48px!important}
+.uat-clear{position:absolute;right:2px;top:0;width:44px;height:44px;border:0;background:none;color:var(--fd-text-muted);font-size:22px;cursor:pointer}
+.ticker-results{max-height:min(44vh,calc(var(--uat-vvh,100vh) * .45));overflow:auto;background:var(--fd-surface-raised)!important;border:1px solid var(--fd-border)}
+.ticker-results li{color:var(--fd-text);overflow-wrap:anywhere}
+.ticker-results li.uat-empty,.ticker-results li.uat-hint{color:var(--fd-text-muted);cursor:default}
+.ticker-results li[data-code]:hover,.ticker-results li[data-code]:focus{background:var(--fd-surface-soft)}
+/* ── 계좌 추가 버튼(거래 등록과 분리) ── */
+.uat-acct-add{position:fixed;left:max(16px,calc(50% - var(--mu-w,480px)/2 + 16px));bottom:calc(76px + env(safe-area-inset-bottom));z-index:25;min-height:48px;padding:0 16px;border-radius:999px;background:var(--fd-surface-raised);color:var(--fd-text);border:1.5px solid var(--fd-primary);font-size:15px;font-weight:800;box-shadow:0 8px 24px #000a;cursor:pointer}
+body:has(#ledger-dialog[open]) .uat-acct-add{display:none}
+.garden .mu-fab{background:var(--fd-primary)!important;color:var(--fd-on-primary)!important}
+#ledger-dialog .lab-primary{background:var(--fd-primary)!important;color:var(--fd-on-primary)!important;border-color:var(--fd-primary)!important}
+/* 도넛 범례: 이름·비중 항상 읽힘 */
+.uat-donut-legend *{white-space:normal!important;text-overflow:clip!important;overflow:visible!important;overflow-wrap:anywhere}

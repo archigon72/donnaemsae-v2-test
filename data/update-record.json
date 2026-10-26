@@ -1,0 +1,13 @@
+{
+ "release_id": "auto-20261022-105047-live",
+ "applied_kst": "2026-10-22T10:52:38.735312+09:00",
+ "previous_commit": "d6f2a14f180b64cbfeaf3ae10f1e706508aca94b",
+ "revert_hint": "git revert <이 반영 커밋> (force push 금지)",
+ "changed_codes": 194,
+ "nav_rows_added": 194,
+ "div_rows_added": 0,
+ "meta_filled_codes": 0,
+ "prices_updated": 194,
+ "cutoff_max": "2026-10-21",
+ "source_state": "updated"
+}

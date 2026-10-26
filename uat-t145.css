@@ -1,0 +1,36 @@
+/* t145 투자 성적 배치 (승인 팔레트 값만 사용) */
+.pf-up{color:#46E5AC}.pf-dn{color:#56B9FF}.pf-na{color:#AEC0CB;font-size:.9em}
+.pf-tabs{margin-top:8px}.pf-grid{grid-template-columns:repeat(2,1fr)}
+.pf-total{display:flex;flex-direction:column;gap:2px;margin-top:8px;padding:12px}.pf-total b{font-size:20px}
+.pf-row .pf-head{display:flex;justify-content:space-between;gap:8px}.pf-sub{display:block;font-size:11.5px;color:#AEC0CB}
+.pf-row dl{display:grid;grid-template-columns:1fr auto;gap:2px 8px;margin:6px 0 0;font-size:13px}.pf-row dd{margin:0;text-align:right}
+.pf-home{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px;text-decoration:none;color:inherit}
+.pf-home span{display:flex;flex-direction:column}.pf-home small{font-size:11.5px;color:#AEC0CB}.pf-home b{font-size:14px}
+/* t146: 금액 말줄임 없이 표시, 모바일 1열 */
+.pf-grid .mu-flow-tile b,.pf-total b,.pf-row dd,.pf-row .pf-head b,.pf-home b{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;word-break:keep-all;overflow-wrap:anywhere}
+.pf-grid .mu-flow-tile span{min-height:0}
+@media(max-width:600px){.pf-grid{grid-template-columns:1fr!important}.pf-grid .mu-flow-tile{width:100%}.pf-grid .mu-flow-tile b{font-size:17px}}
+.pf-go{display:inline-block;margin-top:10px;min-height:36px;line-height:36px}
+/* t147: 홈 CTA 버튼·전체 투자 성적 가로형 카드 5개 (이 요소에만 적용되는 강조색) */
+.pf-cta{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;min-height:52px;padding:10px 16px;border-radius:14px;background:#1F7A55;border:1px solid #46E5AC;color:#FFFFFF;font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 0 0 1px rgba(70,229,172,.25)}
+.pf-cta svg{width:22px;height:22px;fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round}
+.pf-hcards{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.pf-hc{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px;border-radius:14px;background:#0B1A27;border:1px solid var(--pf-a)}
+.pf-hc-cost{--pf-a:#83A5FF}.pf-hc-val{--pf-a:#46E5AC}.pf-hc-pnl{--pf-a:#FF83AC}.pf-hc-recv{--pf-a:#FFC83D}.pf-hc-sum{--pf-a:#56B9FF;background:#0E2236}
+.pf-hi{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--pf-a) 18%,#0B1A27)}
+.pf-hi svg{width:26px;height:26px;fill:none;stroke:var(--pf-a);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pf-hl{display:flex;flex-direction:column;min-width:0}.pf-hl b{font-size:15px;color:#EFF6F8}.pf-hl small{font-size:12px;color:#AEC0CB}
+.pf-hv{display:flex;flex-direction:column;align-items:flex-end;text-align:right;min-width:0}
+.pf-hv b{font-size:clamp(16px,5vw,21px);font-weight:800;white-space:nowrap;color:#EFF6F8}.pf-hv b.pf-up,.pf-hv em.pf-up{color:#46E5AC}.pf-hv b.pf-dn,.pf-hv em.pf-dn{color:#56B9FF}
+.pf-hv em{font-style:normal;font-weight:800;font-size:15px}.pf-hv small{font-size:11.5px;color:#AEC0CB}
+@media(max-width:340px){.pf-hc{grid-template-columns:40px minmax(0,1fr)}.pf-hi{width:40px;height:40px}.pf-hv{grid-column:1/-1;align-items:flex-end}}
+/* t254 홈 요약 카드: 계산 기준 펼침 */
+.pf-home{padding:12px;border:1px solid rgba(174,192,203,.22);border-radius:14px;background:rgba(12,21,33,.45);gap:12px 10px}.pf-home b{font-size:16px}
+.mu-unc{color:#F2C46D!important;margin-top:8px}
+.mu-calc{margin:8px 0 10px;border:1px solid rgba(174,192,203,.22);border-radius:12px;background:rgba(12,21,33,.45)}
+.mu-calc-toggle{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;width:100%;min-height:44px;padding:10px 12px;font-size:13.5px;color:#E6EEF2;cursor:pointer}
+.mu-calc-toggle:focus-visible{outline:2px solid #7FD6A8;outline-offset:2px;border-radius:12px}
+.mu-calc-toggle[aria-expanded=true] .mu-chev{transform:rotate(90deg)}
+.mu-calc-body{padding:0 12px 10px}.mu-calc-sec h3{font-size:12.5px;margin:10px 0 4px;color:#AEC0CB}.mu-calc-sec p{font-size:12px;line-height:1.55;margin:0}
+/* t257 검증용 가상 이월재원 경고 */
+.mu-syn-warn{display:flex;flex-direction:column;gap:4px;margin:8px 0 10px;padding:10px 12px;border:1px solid #F2C46D;border-radius:12px;background:rgba(242,196,109,.12);color:#F2C46D}.mu-syn-warn small{color:#E6D3A8;font-size:12px;line-height:1.5}

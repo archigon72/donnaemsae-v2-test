@@ -1,0 +1,9 @@
+/* t262 메인 대문: 대표 최종 승인 이미지 1장(941x1672, 종횡비 유지) + 카드 4개 투명 링크(원본 픽셀 기준 %) */
+*{box-sizing:border-box}html,body{margin:0;background:#0c1521;color-scheme:only dark}
+.hm{position:relative;display:block;width:100%;max-width:941px;margin:0 auto}
+.hm-img{display:block;width:100%;height:auto}
+.hm-link{position:absolute;display:block;border-radius:2.2%/1.4%;-webkit-tap-highlight-color:transparent}
+.hm-link:focus-visible{outline:3px solid #91cdb0;outline-offset:-3px}
+.hm-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* 화면이 이미지보다 세로로 긴 휴대폰: 이미지 아래가 단색으로 끊기지 않도록 같은 원본 이미지를 흐리게 깐 배경(별도 그림·문구 없음) */
+body::before{content:"";position:fixed;inset:-40px;z-index:-1;background:url(assets/portal/main-home-final.webp) center bottom/cover no-repeat;filter:blur(26px) brightness(.5) saturate(1.05)}

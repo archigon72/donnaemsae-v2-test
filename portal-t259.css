@@ -1,0 +1,14 @@
+/* t259 메인 대문: 대표 최종 승인 시안(01) 그대로 — 그림은 조각 이미지, 카드 4개는 각각 독립 HTML 링크(카드 전체 면적) */
+.gate-row{display:grid;align-items:start}
+.gate-r1{grid-template-columns:31fr 666fr 17fr 196fr 31fr}
+.gate-r2{grid-template-columns:33fr 428fr 19fr 426fr 35fr}
+.gate-card{position:relative;display:block;min-width:0;border-radius:clamp(10px,2.2vw,20px);text-decoration:none;-webkit-tap-highlight-color:transparent}
+.gate-card:focus-visible{outline:3px solid #91cdb0;outline-offset:-3px}
+.gate-card:active{filter:brightness(1.06)}
+.gate-card.noimg{display:flex;align-items:center;justify-content:center;min-height:96px;background:#102638;border:1.5px solid #46E5AC}
+.gate-card.noimg .portal-copy{position:static;width:auto;height:auto;margin:0;clip-path:none;white-space:normal;color:#EFF6F8;padding:12px;font:700 16px/1.4 system-ui,sans-serif;text-align:center}
+/* t260: 계곡 하단을 화면 끝까지 자연스럽게 연장(전체 이미지 늘림·카드 이동 없음) */
+html,body{background:#0c1521}
+.portal{display:flex;flex-direction:column;min-height:100vh;min-height:100svh;min-height:100dvh}
+.portal>header,.portal>nav,.portal>div,.portal>img,.portal>footer{flex:none}
+.portal>.gate-ext{flex:1 1 auto;min-height:0;margin-top:-1px;background:url(assets/portal/t259/footer-ext.webp?v=t261) center top/100% auto no-repeat,rgb(18,24,14)}

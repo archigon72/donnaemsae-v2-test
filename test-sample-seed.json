@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-20T00:00:00.000Z",
+  "accounts": [
+    {
+      "account_id": "acc-s1",
+      "name": "샘플증권A",
+      "type": "연금저축"
+    },
+    {
+      "account_id": "acc-s2",
+      "name": "샘플증권B",
+      "type": "일반"
+    },
+    {
+      "account_id": "acc-s3",
+      "name": "샘플증권C",
+      "type": "IRP"
+    }
+  ],
+  "transactions": [
+    {
+      "transaction_id": "5f231521-682e-4abd-9c8a-a8f9c960ee2e",
+      "account_id": "acc-s1",
+      "code": "441640",
+      "cycle_id": "cyc-acc-s1441640",
+      "type": "initial_buy",
+      "trade_date": "2026-09-01",
+      "order_key": 0,
+      "quantity": "100",
+      "trade_price": "12340"
+    },
+    {
+      "transaction_id": "cb357ba2-89a6-4356-885e-55f36bcbeffb",
+      "account_id": "acc-s1",
+      "code": "441640",
+      "cycle_id": "cyc-acc-s1441640",
+      "type": "add_buy",
+      "trade_date": "2026-09-15",
+      "order_key": 0,
+      "quantity": "20",
+      "trade_price": "12500"
+    },
+    {
+      "transaction_id": "1cf6589b-f5e9-4ffd-bbf1-b32df85de8ba",
+      "account_id": "acc-s1",
+      "code": "498400",
+      "cycle_id": "cyc-acc-s1498400",
+      "type": "initial_buy",
+      "trade_date": "2026-09-02",
+      "order_key": 0,
+      "quantity": "50",
+      "trade_price": "10200"
+    },
+    {
+      "transaction_id": "fa3a9957-e55c-4d15-89f6-f8a14014d4a0",
+      "account_id": "acc-s2",
+      "code": "161510",
+      "cycle_id": "cyc-acc-s2161510",
+      "type": "initial_buy",
+      "trade_date": "2026-09-03",
+      "order_key": 0,
+      "quantity": "10",
+      "trade_price": "21000"
+    },
+    {
+      "transaction_id": "459259e2-12b2-41a3-a653-7fbd5c3ec440",
+      "account_id": "acc-s2",
+      "code": "161510",
+      "cycle_id": "cyc-acc-s2161510",
+      "type": "sell",
+      "trade_date": "2026-10-01",
+      "order_key": 0,
+      "quantity": "3",
+      "trade_price": "22000"
+    },
+    {
+      "transaction_id": "8935aa5a-c4b3-403c-8a9f-def9b281f2ba",
+      "account_id": "acc-s3",
+      "code": "458730",
+      "cycle_id": "cyc-acc-s3458730",
+      "type": "initial_buy",
+      "trade_date": "2026-09-05",
+      "order_key": 0,
+      "quantity": "40",
+      "trade_price": "11000"
+    }
+  ],
+  "dividend_uses": [],
+  "metadata": {
+    "app": "donnaemsae-lab",
+    "scope": "user-facts"
+  }
+}

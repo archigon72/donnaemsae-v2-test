@@ -1,0 +1,29 @@
+{
+ "note": "자산관리용 기타 ETF 시세(194 배당 CORE 수집 대상 아님). 공개 시장 종가만 포함.",
+ "source": "FunETF 공개 종가",
+ "basis_date": "2026-10-19",
+ "items": [
+  {
+   "code": "091160",
+   "name": "KODEX 반도체",
+   "price": "116235",
+   "trade_date": "2026-10-19",
+   "as_of": null,
+   "market_status": "closed",
+   "price_type": "close",
+   "source": "FUNETF_PUBLIC_CLOSE",
+   "etc": true
+  },
+  {
+   "code": "487240",
+   "name": "KODEX AI전력핵심설비",
+   "price": "28450",
+   "trade_date": "2026-10-19",
+   "as_of": null,
+   "market_status": "closed",
+   "price_type": "close",
+   "source": "FUNETF_PUBLIC_CLOSE",
+   "etc": true
+  }
+ ]
+}

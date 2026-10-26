@@ -1,0 +1,21 @@
+/* 통합 대문 상단 줄(t237): 옛 상단 카드 이미지/레이어 없음. 새 카드 2개(80/20)만 CSS로 구현.
+   뒤편은 기존 대문 숲 그림(header.png)의 아랫부분을 원비율(가로 100%·늘림/반복 없음)로 이어 표시. */
+.portal-top{display:grid;grid-template-columns:80fr 20fr;gap:clamp(7px,1.6vw,14px);padding:clamp(4px,1vw,10px) calc(33/941*100%) clamp(8px,1.6vw,14px) calc(33/941*100%);background:#0b1a14 url(assets/portal/header.png) center bottom/100% auto no-repeat;color-scheme:only dark}
+.pt-card{position:relative;display:flex;align-items:center;min-width:0;min-height:clamp(96px,22vw,170px);border-radius:clamp(12px,2.4vw,20px);text-decoration:none;overflow:hidden;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.pt-play{gap:clamp(10px,2.6vw,22px);padding:clamp(10px,3vw,26px) clamp(12px,3vw,28px);color:#eaf3f1;
+ background:radial-gradient(120% 140% at 85% -20%,rgba(160,240,150,.38),transparent 55%),linear-gradient(135deg,rgba(28,92,62,.82),rgba(10,48,36,.78) 55%,rgba(6,30,24,.86));
+ border:1.5px solid #46E5AC;box-shadow:0 0 14px rgba(70,229,172,.45),inset 0 0 18px rgba(70,229,172,.18),0 10px 26px rgba(0,0,0,.45)}
+.pt-ico{flex:0 0 auto;display:grid;place-items:center;width:clamp(50px,11vw,96px);aspect-ratio:1}
+.pt-ico svg{width:100%;height:100%;filter:drop-shadow(0 0 6px rgba(70,229,172,.5))}
+.pt-t{display:flex;flex-direction:column;gap:clamp(4px,1vw,8px);flex:1;min-width:0}
+.pt-t b{font-size:clamp(17px,4.6vw,32px);font-weight:800;letter-spacing:-.02em;color:#f2fff9;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.pt-t b i{font-style:normal;font-size:.42em;font-weight:800;vertical-align:.35em;margin-left:.3em;padding:.15em .55em;border-radius:999px;color:#46E5AC;border:1px solid #46E5AC;background:rgba(70,229,172,.12)}
+.pt-t small{font-size:clamp(12px,3vw,18px);color:#cfe9df}
+.pt-arr{flex:0 0 auto;display:grid;place-items:center;width:clamp(26px,5.4vw,42px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(234,243,241,.45);color:#eaf3f1;background:rgba(0,0,0,.18)}
+.pt-arr svg{width:58%;height:58%}
+.pt-term{flex-direction:column;justify-content:center;gap:clamp(4px,1.2vw,10px);padding:8px 4px;color:#fff3cf;
+ background:linear-gradient(160deg,rgba(64,52,22,.62),rgba(22,26,20,.78));border:1.5px solid rgba(255,200,61,.75);box-shadow:0 0 10px rgba(255,200,61,.25),inset 0 0 14px rgba(255,200,61,.1),0 10px 26px rgba(0,0,0,.45)}
+.pt-term svg{width:clamp(26px,6vw,46px);height:auto}
+.pt-term b{font-size:clamp(14px,3.8vw,24px);font-weight:800;color:#fff3cf}
+.pt-card:focus-visible{outline:3px solid #91cdb0;outline-offset:2px}
+.pt-card:active{transform:scale(.985)}

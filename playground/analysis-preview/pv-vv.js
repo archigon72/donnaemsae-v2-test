@@ -1,0 +1,1 @@
+/* 놀이터 후보 사본 전용: visualViewport 높이를 --vvh로(목록창 max-height용). 데이터 접근 없음 */(()=>{const vv=window.visualViewport,f=()=>document.documentElement.style.setProperty('--vvh',Math.round(vv?vv.height:innerHeight)+'px');f();if(vv){vv.addEventListener('resize',f);vv.addEventListener('scroll',f)}addEventListener('resize',f)})();
