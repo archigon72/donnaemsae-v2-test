@@ -97,7 +97,7 @@ else{h=lv2Head('<a class="lv2-back" href="asset-hub.html" aria-label="자산관�
 return '<div class="lv2"><a class="lv2-logo" href="index.html">돈냄새연구소</a>'+h+'</div>'+(nt?'<div id="mc-notices" class="mu-notices">'+nt+'</div>':'')}
 /* UI routing only: derive mode from URL; never write ledger storage. */
 const MODES={performance:['배당이 키운 자산','배당이 키운 자산과 수량, 배당 흐름을 살펴봐요.'],ledger:['계좌·거래 관리','계좌와 거래 기록을 관리하고 백업해요.'],composition:['내 투자금','현재 보유 직접투자 취득원가의 구성이에요.'],dividends:['배당 성과 분석','받은 배당의 시간 흐름을 원장 기록으로 봐요.'],tr:['투자성과','내 계좌의 실제 투자 성과'],weather:['미래 날씨','보유 배당주 기준 세 가지 가상 시나리오']};
-function assetMode(){const m=new URLSearchParams(location.search).get('mode');return MODES[m]?m:'ledger'}
+function assetMode(){const q=new URLSearchParams(location.search),m=q.get('mode');if(m==='performance'&&!q.has('legacy'))return 'tr';return MODES[m]?m:'ledger'}
 function assetModeUrl(mode){const u=new URL(location.href);u.searchParams.set('mode',mode);return u.pathname+u.search+u.hash}
 function assetBreadcrumb(){return '<a class="asset-breadcrumb" href="asset-hub.html">← 자산관리 선택으로</a>'}
 function assetModeHeader(mode){const [t,sub]=MODES[mode];return '<section class="mu-banner"><div><h1>'+t+'</h1><p>'+sub+'</p>'+(mode==='ledger'?'<a class="mu-sub-link" href="'+esc(assetModeUrl('dividends'))+'">배당 성과 분석으로 →</a>':'<a class="mu-sub-link" href="asset-hub.html">← 홈으로</a>')+'</div><img src="'+A+'management_glowing_tree.webp" alt="" aria-hidden="true"></section>'}
