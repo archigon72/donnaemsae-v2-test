@@ -19,3 +19,26 @@ body.pv3 .pv-card,body.pv3 .pv-sec{background:rgba(6,22,30,.46)!important;backdr
 .bp-more summary{cursor:pointer;font-size:12.5px;color:#7fe0c8;padding:8px 0}
 .bp-core{margin-left:auto;align-self:center;font-size:12px;font-weight:800;color:#f1d58e!important;text-decoration:none!important;white-space:nowrap}
 .bp-accs li.on a{outline:1px solid rgba(94,214,200,.5);border-radius:12px}
+/* t281 성과 추이 비교 그래프 */
+.bp-gr .bp-gh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.bp-gr h3{margin:0;font-size:15px}
+.bp-per,.bp-refs{display:flex;gap:4px;flex-wrap:wrap}
+.bp-per button,.bp-refs button{font:inherit;font-size:12px;padding:5px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#dfe7f3;min-height:30px}
+.bp-per button.on,.bp-refs button.on{background:#e8c873;color:#1b2333;border-color:#e8c873;font-weight:700}
+.bp-refs{margin-top:8px}
+.bp-plot{margin-top:10px}.bp-svg{width:100%;height:auto;display:block}
+.bp-zero{stroke:rgba(255,255,255,.3);stroke-dasharray:3 3}
+.bp-ln{fill:none;stroke-width:2;stroke-linejoin:round}
+.bp-me{stroke:#f2c94c;stroke-width:3}.bp-etf{stroke:#5fd39a}.bp-ref0{stroke:#6aa8ff}.bp-ref1{stroke:#b08cff}.bp-ref2{stroke:#9aa5b4}
+.bp-ax{display:flex;justify-content:space-between;font-size:11px;color:#aab6c8}
+.bp-lg{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px;font-size:12px}
+.bp-lg li{display:flex;align-items:center;gap:6px;min-width:0}.bp-lg li b{margin-left:auto;white-space:nowrap}
+.bp-lg i{width:14px;height:3px;border-radius:2px;flex:none;background:currentColor}
+.bp-lg li.bp-me i{background:#f2c94c}.bp-lg li.bp-etf i{background:#5fd39a}.bp-lg li.bp-ref0 i{background:#6aa8ff}.bp-lg li.bp-ref1 i{background:#b08cff}.bp-lg li.bp-ref2 i{background:#9aa5b4}
+.bp-note,.bp-wait{font-size:11px;color:#aab6c8;margin:6px 0 0;overflow-wrap:anywhere}
+.bp-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:10px}
+.bp-tiles>div{background:rgba(255,255,255,.06);border-radius:10px;padding:8px;min-width:0}
+.bp-tiles em{display:block;font-style:normal;font-size:11px;color:#aab6c8}.bp-tiles b{display:block;font-size:15px;overflow-wrap:anywhere}.bp-tiles small{display:block;font-size:10px;color:#8f9bb0;overflow-wrap:anywhere}
+.bp-mix .bp-kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.ta-in{margin:10px 0}
+.bp .dv-nm b,.bp .dv-list b,.av2-card b{white-space:normal!important;text-overflow:clip!important;overflow:visible!important;overflow-wrap:anywhere;word-break:normal}
