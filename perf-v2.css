@@ -62,3 +62,5 @@
 .wx-tr{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;border:1.5px solid #5be38a;border-radius:14px;padding:10px 14px;background:rgba(10,45,25,.7);margin-bottom:10px}.wx-tr span{width:100%;font-size:13px}.wx-tr b{font-size:24px;color:#7CFF9B}
 .wx-svg{width:100%;height:auto}.wx-lv{fill:none;stroke:#7CFF9B;stroke-width:2.2}.wx-ld{fill:none;stroke:#56b9ff;stroke-width:2}.wx-ax{fill:#e6eeec;font-size:10px}.wx-bd{fill:rgba(255,110,120,.22)}.wx-br{fill:rgba(255,211,77,.16)}.wx-bt{fill:#ffb3b9;font-size:9px}
 .wx-leg{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;margin-top:4px}.wx-leg .v{color:#7CFF9B}.wx-leg .d{color:#56b9ff}.wx-leg .bd{color:#ff9aa3}.wx-leg .br{color:#ffd34d}
+
+/* t276 정리 */body.lv2-on .lab-main,body.av2-on .lab-main{padding-bottom:calc(96px + env(safe-area-inset-bottom))!important}.lv2-sec,.lv2-list{margin-bottom:10px}.ocr-v2{margin:0 0 10px}.ocr-v2>summary{cursor:pointer;font-size:13px;color:#a9cfc2;padding:8px 0}

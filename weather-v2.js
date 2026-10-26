@@ -24,3 +24,5 @@ function simulate(holds,sc,years){ // holds: [{value, yield}] value=현재 평�
 const api=Object.freeze({YEARS,DROP,REC,CYCLE,BOTTOM,RCUT,CLOUD,path,simulate});
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.WeatherV2=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
+
+;typeof window!=='undefined'&&window.addEventListener('pageshow',function(e){if(e.persisted&&/[?&]mode=weather/.test(location.search))location.reload()});

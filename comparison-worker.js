@@ -31,7 +31,7 @@ async function execute(data){
   const bundles=[];
   for(const item of data.items){
    if(!/^[0-9A-Z]{6}$/.test(item.code))throw Error('Invalid ticker');
-   const path=(item.kind==='etf'?'inputs/':'references/')+item.code+'.json';
+   const path=(item.kind==='etf'||item.code==='458730'?'inputs/':'references/')+item.code+'.json'; // t276: 458730 비교기준은 CORE 자료 재사용
    const bytes=await(await get('./'+path)).arrayBuffer();hashBytes(path,bytes);
    const bundle=JSON.parse(new TextDecoder().decode(bytes));
    if(bundle.ticker!==item.code||(bundle.meta.snapshot_id!==manifest.snapshot.snapshot_id&&!Object.hasOwn(manifest.accepted_bundle_snapshots||{},bundle.meta.snapshot_id)))throw Error('Input boundary mismatch');

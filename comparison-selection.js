@@ -4,7 +4,7 @@
   const $ = id => document.getElementById(id);
   const input = $('compare-search'), results = $('compare-results'), selected = $('compare-selected');
   const etfs = new Map(), markets = new Set(), support = new Map();
-  const refs = [['379800','S&P500'],['379810','NASDAQ100'],['069500','KOSPI200'],['229200','KOSDAQ150']];
+  const refs = [['379800','S&P500'],['379810','NASDAQ100'],['069500','KOSPI200'],['458730','미국배당다우존스']];
   let catalog = null, failed = false, open = false, period = '1년', basis = 'tr', sequence = 0, worker = null, current = null, currentItems = [];
   function invalidate() { sequence++; current = null; $('comparison-output').hidden = true; $('comparison-results').hidden = true; $('comparison-chart').replaceChildren(); $('comparison-table').replaceChildren(); $('comparison-available').replaceChildren(); $('compare-ready').textContent = ''; }
   const ready = () => etfs.size >= 1 && etfs.size + markets.size >= 2;
@@ -45,8 +45,8 @@
     const label = document.createElement('label'), checkbox = document.createElement('input'), text = document.createElement('span'), caption = document.createElement('small');
     checkbox.type = 'checkbox'; checkbox.id = 'reference-' + code; checkbox.disabled = true; text.append(document.createTextNode(name)); caption.id = 'reference-status-' + code; caption.textContent = '로컬 자료 확인 중'; text.append(caption); label.append(checkbox,text); $('compare-markets').append(label);
     checkbox.addEventListener('change', () => { if (checkbox.checked && markets.size < 2 && support.get(code)?.available) markets.add(code); else markets.delete(code); invalidate(); update(); });
-    fetch('references/' + code + '.json').then(r => { if (!r.ok) throw Error('reference'); return r.json(); }).then(data => {
-      const rows = Array.isArray(data.nav_rows) ? data.nav_rows.filter(r => /^\d{8}$/.test(r.gijunYmd) && Number.isFinite(r.fp) && r.fp > 0) : [];
+    fetch((code === '458730' ? 'inputs/' : 'references/') + code + '.json').then(r => { if (!r.ok) throw Error('reference'); return r.json(); }).then(data => {
+      const rows = Array.isArray(data.nav_rows) ? data.nav_rows.filter(r => /^\d{8}$/.test(r.gijunYmd) && Number.isFinite(Number(r.fp)) && Number(r.fp) > 0) : [];
       if (rows.length < 2 || !Array.isArray(data.distribution_rows) || data.ticker !== code) throw Error('reference data');
       const dates = rows.map(r=>r.gijunYmd).sort(); support.set(code,{available:true}); caption.textContent = '기존 대표 ETF ' + code + ' · 자료 ' + dates[0] + '–' + dates[dates.length-1]; update();
     }).catch(() => { support.set(code,{available:false}); markets.delete(code); caption.textContent = '선택 불가 · 로컬 NAV/분배 자료 확인 실패'; update(); });
