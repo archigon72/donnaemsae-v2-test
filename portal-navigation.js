@@ -42,7 +42,7 @@
     new MutationObserver(addPlayground).observe(document.body, {childList: true, subtree: true});
     function connect() {
       document.querySelectorAll('a[href]').forEach(function (a) {
-        if (a.closest('.portal-return-bar')) return;
+        if (a.closest('.portal-return-bar, .pv-top')) return;
         const url = new URL(a.getAttribute('href'), location.href);
         if (url.origin !== location.origin) return;
         if (service === 'analysis' && document.body.dataset.view === 'detail' && (a.classList.contains('fx-back') || a.classList.contains('back-link'))) {
