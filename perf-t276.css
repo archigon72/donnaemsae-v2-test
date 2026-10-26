@@ -60,3 +60,4 @@ body.pv3::before{background:linear-gradient(180deg,rgba(4,14,22,.10),rgba(4,14,2
 .dv-tbl{margin-top:8px;font-size:12.5px}.dv-th,.dv-tr{display:grid;grid-template-columns:1fr 1fr .8fr 1fr;gap:6px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}.dv-th{color:#8e9ba5;font-size:11px}.dv-tr b{color:#f2cf6b;text-align:right}.dv-th span:last-child{text-align:right}
 .dv-empty{color:#aab6bf;margin:8px 0 0;font-size:13px}
 .dv-more summary{cursor:pointer;font-weight:700;font-size:14px;min-height:28px}.dv-more ul{margin:10px 0 0;padding-left:18px;color:#c9d3da;font-size:12px;line-height:1.7}
+.dv-in{display:block;margin:12px 0 0 auto;background:none;border:1px solid rgba(94,214,200,.45);color:#5ed6c8;border-radius:16px;padding:6px 14px;font:inherit;font-size:12.5px;font-weight:700;min-height:34px}
