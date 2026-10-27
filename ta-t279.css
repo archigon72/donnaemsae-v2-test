@@ -33,3 +33,9 @@
 .bp .dv-nm b,.bp .dv-list b,.av2-card b{white-space:normal!important;text-overflow:clip!important;overflow:visible!important;overflow-wrap:anywhere;word-break:normal}
 .ta-miss em{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
 #app>main{padding-bottom:calc(112px + env(safe-area-inset-bottom,0px))!important}
+/* t290u: 받은 배당금 1줄 · 카드 미확인 1줄 */
+.ta .ta-rc1{display:flex;align-items:center;gap:8px;margin-top:12px;padding:12px 14px;border:1px solid rgba(150,220,200,.28);border-radius:14px;background:rgba(6,22,30,.42);white-space:nowrap}
+.ta .ta-rc1 em{font-style:normal;font-size:12.5px;color:#cfe0dc;flex:0 0 auto}
+.ta .ta-rc1 b{font-size:15px;font-weight:900;color:#ffd27a;flex:1 1 auto;text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.ta .ta-rc1 small{flex:0 0 auto;color:#9fb0bb}
+.ta .ta-miss em{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

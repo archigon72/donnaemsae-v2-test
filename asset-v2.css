@@ -69,3 +69,10 @@ body.av2-on .mu-fab,body.av2-on .uat-home-fab{display:none!important}
 .av2-mx-s+.av2-mx-s{margin-top:3px}
 .av2-mx-s b{color:#e6eeec;font-weight:600;font-variant-numeric:tabular-nums}
 @media(max-width:380px){.av2-mix{padding:8px}.av2-mx-c{padding:7px 6px}.av2-mx-c b{font-size:14px}}
+/* t290u: 시세 기준·미확인 1줄 요약 + 접힘 */
+.av2-more{margin:8px 0 0;font-size:12px}
+.av2-more>summary{cursor:pointer;list-style:none;color:#b9c6c3;-webkit-text-fill-color:#b9c6c3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:22px}
+.av2-more>summary::-webkit-details-marker{display:none}
+.av2-more>summary::after{content:' ▾'}.av2-more[open]>summary::after{content:' ▴'}
+.av2-more>small{display:block;margin-top:4px;font-size:11.5px;line-height:1.45;overflow-wrap:anywhere;color:#9fb0bb;-webkit-text-fill-color:#9fb0bb}
+.av2-miss.av2-more>summary{color:#FFB86B;-webkit-text-fill-color:#FFB86B}
