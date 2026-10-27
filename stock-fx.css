@@ -1,0 +1,27 @@
+/* t281ua2 B: 종목 DB 검색 · USD 거래 입력 · USD/KRW 칩 (승인 팔레트) */
+.sfx-row .sfx-q{width:100%;box-sizing:border-box;height:42px;border-radius:10px;padding:0 10px;border:1px solid rgba(86,185,255,.55);background:rgba(0,0,0,.25);color:#fff}
+.sfx-res{margin-top:4px;max-height:min(40vh,300px);overflow:auto}
+.sfx-res li[data-c]{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;cursor:pointer;overflow-wrap:anywhere;min-width:0}
+.sfx-res li b{font-size:14px}.sfx-res li small{font-size:11.5px;opacity:.75;overflow-wrap:anywhere}
+.sfx-src{font-size:11px!important;opacity:.8}
+.sfx-usd{margin:8px 0 2px;padding:10px;border:1px solid rgba(86,185,255,.45);border-radius:12px;background:rgba(86,185,255,.07)}
+.sfx-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.sfx-c{display:flex;flex-direction:column;gap:4px;min-width:0;font-size:12px;color:#cfe3f3!important;-webkit-text-fill-color:#cfe3f3!important;word-break:keep-all}
+.sfx-c input{width:100%;box-sizing:border-box;height:42px;border-radius:10px;padding:0 10px;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.25);color:#fff;font-size:16px}
+.sfx-c [name=sfx_fx]{border-color:rgba(255,200,61,.6)}
+.sfx-calc{margin:8px 0 0;font-size:12.5px;color:#46E5AC!important;-webkit-text-fill-color:#46E5AC!important;overflow-wrap:anywhere}
+.sfx-ref{margin:6px 0 0;font-size:12px;color:#a9c7dc!important;-webkit-text-fill-color:#a9c7dc!important}
+.sfx-apply{min-height:30px;padding:0 10px;border-radius:8px;border:1px solid #56B9FF;background:transparent;color:#56B9FF!important;-webkit-text-fill-color:#56B9FF!important}
+.sfx-fxw{margin:0 0 10px;max-width:100%}
+.sfx-chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;border-radius:999px;border:1px solid rgba(86,185,255,.6);background:rgba(86,185,255,.12);color:#cfe8ff!important;-webkit-text-fill-color:#cfe8ff!important;font-size:12.5px;cursor:pointer}
+.sfx-chip b{color:#56B9FF!important;-webkit-text-fill-color:#56B9FF!important}
+.sfx-chip.sfx-cached{border-color:rgba(255,170,102,.7)}.sfx-chip.sfx-cached b{color:#FFAA66!important;-webkit-text-fill-color:#FFAA66!important}
+.sfx-chip.sfx-none{border-color:rgba(255,131,172,.7)}.sfx-chip.sfx-none b{color:#FF83AC!important;-webkit-text-fill-color:#FF83AC!important}
+.sfx-pop{margin-top:6px;padding:10px 12px;border-radius:12px;border:1px solid rgba(86,185,255,.35);background:rgba(6,18,28,.82);font-size:12px;line-height:1.5;color:#c6d4d2!important;-webkit-text-fill-color:#c6d4d2!important;overflow-wrap:anywhere}
+.sfx-pop p{margin:0}.sfx-pop .sfx-r{font-size:13px}.sfx-pop .sfx-r b{color:#56B9FF!important;-webkit-text-fill-color:#56B9FF!important}
+.sfx-pop .sfx-warn{color:#FFAA66!important;-webkit-text-fill-color:#FFAA66!important}
+.sfx-pop .sfx-note{opacity:.75;margin-top:4px}
+.sfx-us{list-style:none;margin:6px 0 0;padding:0}
+.sfx-us li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,2fr);gap:6px;padding:3px 0;border-top:1px solid rgba(255,255,255,.08)}
+.sfx-us li span:last-child{text-align:right}
+.sfx-txfx{margin:8px 0 0;font-size:12px;color:#56B9FF;overflow-wrap:anywhere}
