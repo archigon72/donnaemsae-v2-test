@@ -32,3 +32,4 @@
 .ta .ta-rc small{font-size:10.5px!important}
 .bp .dv-nm b,.bp .dv-list b,.av2-card b{white-space:normal!important;text-overflow:clip!important;overflow:visible!important;overflow-wrap:anywhere;word-break:normal}
 .ta-miss em{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+#app>main{padding-bottom:calc(112px + env(safe-area-inset-bottom,0px))!important}
