@@ -6,13 +6,13 @@
 const L=window.ManagementLedger,FXC='dnmv2.usdkrw.cache.v1',USC='dnmv2.usprice.cache.v1';
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const num=(v,d=2)=>Number(v).toLocaleString('ko-KR',{minimumFractionDigits:0,maximumFractionDigits:d});
-async function getJSON(u){const c=new AbortController(),tm=setTimeout(()=>c.abort(),8000);try{const r=await fetch(u,{cache:'no-cache',signal:c.signal});if(!r.ok)throw Error('HTTP '+r.status);return await r.json()}finally{clearTimeout(tm)}}
+async function getJSON(u,ms){const c=new AbortController(),tm=setTimeout(()=>c.abort(),ms||8000);try{const r=await fetch(u,{cache:'no-cache',signal:c.signal});if(!r.ok)throw Error('HTTP '+r.status);return await r.json()}finally{clearTimeout(tm)}}
 const okFx=d=>!!d&&/^\d+(\.\d{1,4})?$/.test(String(d.rate))&&+d.rate>300&&+d.rate<5000&&/^\d{4}-\d{2}-\d{2}$/.test(d.rate_date||'');
 const okUs=d=>!!d&&d.items&&typeof d.items==='object';
 const S={fx:null,fxStatus:'loading',us:null,usStatus:'loading',kr:null,usm:null,usSet:null,prices:null,open:false};
 let fxP=null,usP=null;
 function loadFx(){return fxP||(fxP=getJSON('data/usd-krw.json').then(d=>{if(!okFx(d))throw Error('format');const v=Object.assign({},d,{saved_at:new Date().toISOString()});try{localStorage.setItem(FXC,JSON.stringify(v))}catch(_){}S.fx=v;S.fxStatus='ok'}).catch(()=>{try{const c=JSON.parse(localStorage.getItem(FXC));if(okFx(c)){S.fx=c;S.fxStatus='cached';return}}catch(_){}S.fx=null;S.fxStatus='none'}))}
-function loadUs(){return usP||(usP=getJSON('data/us-stock-prices.json').then(d=>{if(!okUs(d))throw Error('format');try{localStorage.setItem(USC,JSON.stringify(d))}catch(_){}S.us=d;S.usStatus='ok'}).catch(()=>{try{const c=JSON.parse(localStorage.getItem(USC));if(okUs(c)){S.us=c;S.usStatus='cached';return}}catch(_){}S.us=null;S.usStatus='none'}))}
+function loadUs(){return usP||(usP=getJSON('data/us-stock-prices.json',15000).then(d=>{if(!okUs(d))throw Error('format');try{localStorage.setItem(USC,JSON.stringify(d))}catch(_){}S.us=d;S.usStatus='ok'}).catch(()=>{try{const c=JSON.parse(localStorage.getItem(USC));if(okUs(c)){S.us=c;S.usStatus='cached';return}}catch(_){}S.us=null;S.usStatus='none'}))}
 /* 미국주식 현재가(달러) × 현재 적용 환율 → 원화 평가용 가격 항목 추가. 환율 없으면 추가하지 않음(가격 미확인으로 제외 표시). */
 /* t282u: 전 종목 모드 파일(항목에 날짜 없음 → 문서의 trade_date_stock/trade_date_etf 사용, 이름은 코드) 지원. 날짜를 확인할 수 없는 항목은 넣지 않음(임의 날짜 금지). */
 const usDate=v=>v&&(v.trade_date||(v.etf?S.us.trade_date_etf:S.us.trade_date_stock)||S.us.trade_date)||'';
@@ -23,7 +23,7 @@ function usPrice(code){const v=S.us&&S.us.items[code];return v&&+v.price>0&&usDa
 /* t282u: 표시용 분류 힌트(가격 파일의 etf/div) — 원장 불변 */
 function usInfo(code){const v=S.us&&S.us.items&&S.us.items[code];return v&&+v.price>0?{name:v.name||'',etf:!!v.etf,div:!!v.div}:null}
 /* ---------- 종목 검색 DB ---------- */
-let mP=null;function loadMaster(){return mP||(mP=Promise.all([getJSON('data/stock-master-kr.json').catch(()=>null),getJSON('data/stock-master-us.json').catch(()=>null)]).then(([k,u])=>{S.kr=k;S.usm=u;S.usSet=new Set(((u&&u.items)||[]).map(x=>x[0]))}))}
+let mP=null;function loadMaster(){return mP||(mP=Promise.all([getJSON('data/stock-master-kr.json',20000).catch(()=>null),getJSON('data/stock-master-us.json',20000).catch(()=>null)]).then(([k,u])=>{S.kr=k||S.kr;S.usm=u||S.usm;S.usSet=new Set(((S.usm&&S.usm.items)||[]).map(x=>x[0]));if(!k||!u)mP=null/* t282u: 실패 시 다음 검색에서 재시도 */}))}
 const norm=s=>String(s||'').toLowerCase().replace(/[\s.,·()\-]/g,'');
 function search(q,mkt){q=String(q||'').trim();if(!q)return [];const n=norm(q),U=q.toUpperCase();const db=mkt==='us'?S.usm:S.kr;if(!db)return [];const out=[];
  for(const it of db.items){const [c,nm,ex,ko]=it;let s=-1;if(c===U)s=0;else if(c.startsWith(U))s=1;else if(mkt!=='us'&&norm(nm)===n)s=0;else if(norm(nm).startsWith(n))s=2;else if(ko&&norm(ko).includes(n))s=2;else if(norm(nm).includes(n))s=3;else if(c.includes(U))s=4;if(s>=0)out.push([s,it])}
