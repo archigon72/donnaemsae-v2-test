@@ -16,7 +16,7 @@ window.Phase1=(()=>{
  async function custom(code,start,end,onProgress,referenceCodes){
   const c=await catalog();if(!c.items.some(i=>i.ticker===code))throw Error('등록되지 않은 종목입니다.');
   if(!worker){
-   worker=new Worker(new URL('./phase-worker.js',location.href));
+   worker=new Worker(new URL('./phase-worker.js?v=t291u',location.href));
    worker.onerror=e=>{e.preventDefault();failWorker('직접지정 실행 연결 실패. 다시 적용해 주세요. '+e.message);};
    worker.onmessageerror=()=>failWorker('직접지정 결과 전달 실패. 다시 적용해 주세요.');
    worker.onmessage=({data})=>{

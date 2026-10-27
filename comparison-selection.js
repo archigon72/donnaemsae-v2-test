@@ -4,7 +4,7 @@
   const $ = id => document.getElementById(id);
   const input = $('compare-search'), results = $('compare-results'), selected = $('compare-selected');
   const etfs = new Map(), markets = new Set(), support = new Map();
-  const refs = [['379800','S&P500'],['069500','KOSPI200'],['458730','미국배당다우존스']];
+  const refs = [['379800','S&P500'],['379810','NASDAQ100'],['069500','KOSPI200'],['458730','미국배당다우존스']]; /* t291u: 379810 복구 */
   let catalog = null, failed = false, open = false, period = '1년', basis = 'tr', sequence = 0, worker = null, current = null, currentItems = [];
   function invalidate() { sequence++; current = null; $('comparison-output').hidden = true; $('comparison-results').hidden = true; $('comparison-chart').replaceChildren(); $('comparison-table').replaceChildren(); $('comparison-available').replaceChildren(); $('compare-ready').textContent = ''; }
   const ready = () => etfs.size >= 1 && etfs.size + markets.size >= 2;
