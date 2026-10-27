@@ -14,10 +14,14 @@ let fxP=null,usP=null;
 function loadFx(){return fxP||(fxP=getJSON('data/usd-krw.json').then(d=>{if(!okFx(d))throw Error('format');const v=Object.assign({},d,{saved_at:new Date().toISOString()});try{localStorage.setItem(FXC,JSON.stringify(v))}catch(_){}S.fx=v;S.fxStatus='ok'}).catch(()=>{try{const c=JSON.parse(localStorage.getItem(FXC));if(okFx(c)){S.fx=c;S.fxStatus='cached';return}}catch(_){}S.fx=null;S.fxStatus='none'}))}
 function loadUs(){return usP||(usP=getJSON('data/us-stock-prices.json').then(d=>{if(!okUs(d))throw Error('format');try{localStorage.setItem(USC,JSON.stringify(d))}catch(_){}S.us=d;S.usStatus='ok'}).catch(()=>{try{const c=JSON.parse(localStorage.getItem(USC));if(okUs(c)){S.us=c;S.usStatus='cached';return}}catch(_){}S.us=null;S.usStatus='none'}))}
 /* 미국주식 현재가(달러) × 현재 적용 환율 → 원화 평가용 가격 항목 추가. 환율 없으면 추가하지 않음(가격 미확인으로 제외 표시). */
-async function inject(prices){await Promise.all([loadFx(),loadUs()]);S.prices=prices;if(!prices||!Array.isArray(prices.items)||!S.us||!S.fx)return;const rate=String(S.fx.rate);
- for(const [code,v] of Object.entries(S.us.items)){if(!v||!/^\d+(\.\d{1,4})?$/.test(String(v.price))||!(+v.price>0)||!/^\d{4}-\d{2}-\d{2}$/.test(v.trade_date||''))continue;if(prices.items.some(p=>p.code===code))continue;
-  prices.items.push({code,name:v.name,price:L.D.of(String(v.price)).mul(rate).str(8),trade_date:v.trade_date,market_status:'closed',price_type:'close',source:'NASDAQ_PUBLIC_DELAYED',currency:'USD',price_usd:String(v.price),fx_rate:rate,general_stock:true})}}
-function usPrice(code){const v=S.us&&S.us.items[code];return v&&+v.price>0?v:null}
+/* t282u: 전 종목 모드 파일(항목에 날짜 없음 → 문서의 trade_date_stock/trade_date_etf 사용, 이름은 코드) 지원. 날짜를 확인할 수 없는 항목은 넣지 않음(임의 날짜 금지). */
+const usDate=v=>v&&(v.trade_date||(v.etf?S.us.trade_date_etf:S.us.trade_date_stock)||S.us.trade_date)||'';
+async function inject(prices){await Promise.all([loadFx(),loadUs()]);S.prices=prices;if(!prices||!Array.isArray(prices.items)||!S.us||!S.fx)return;const rate=String(S.fx.rate),have=new Set(prices.items.map(p=>p.code));
+ for(const [code,v] of Object.entries(S.us.items)){const td=usDate(v);if(!v||!/^\d+(\.\d{1,4})?$/.test(String(v.price))||!(+v.price>0)||!/^\d{4}-\d{2}-\d{2}$/.test(td))continue;if(have.has(code))continue;
+  prices.items.push({code,name:v.name||code,price:L.D.of(String(v.price)).mul(rate).str(8),trade_date:td,market_status:'closed',price_type:'close',source:'NASDAQ_PUBLIC_DELAYED',currency:'USD',price_usd:String(v.price),fx_rate:rate,general_stock:true})}}
+function usPrice(code){const v=S.us&&S.us.items[code];return v&&+v.price>0&&usDate(v)?Object.assign({},v,{trade_date:usDate(v)}):null}
+/* t282u: 표시용 분류 힌트(가격 파일의 etf/div) — 원장 불변 */
+function usInfo(code){const v=S.us&&S.us.items&&S.us.items[code];return v&&+v.price>0?{name:v.name||'',etf:!!v.etf,div:!!v.div}:null}
 /* ---------- 종목 검색 DB ---------- */
 let mP=null;function loadMaster(){return mP||(mP=Promise.all([getJSON('data/stock-master-kr.json').catch(()=>null),getJSON('data/stock-master-us.json').catch(()=>null)]).then(([k,u])=>{S.kr=k;S.usm=u;S.usSet=new Set(((u&&u.items)||[]).map(x=>x[0]))}))}
 const norm=s=>String(s||'').toLowerCase().replace(/[\s.,·()\-]/g,'');
@@ -72,5 +76,5 @@ function decorate(){const t=document.querySelector('.av2-total');if(t&&!t.queryS
  for(const s of document.querySelectorAll('.av2-acct li small:not([data-sfx])')){s.dataset.sfx='1';const c=(s.textContent.split(' · ')[0]||'').trim(),p=usPrice(c);if(p&&!/^\d/.test(c))s.insertAdjacentHTML('beforeend',' · $'+esc(num(p.price,4)))}}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-sfx-chip]');if(!b)return;S.open=!S.open;b.setAttribute('aria-expanded',String(S.open));const p=b.parentElement.querySelector('.sfx-pop');if(p)p.hidden=!S.open});
 const app=document.getElementById('app');if(app)new MutationObserver(()=>decorate()).observe(app,{childList:true,subtree:true});
-window.StockFX={inject,form,recExtra,search,loadMaster,loadFx,state:S,decorate};
+window.StockFX={inject,form,recExtra,search,loadMaster,loadFx,state:S,decorate,usInfo,usPrice};
 })();
