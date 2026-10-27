@@ -4,6 +4,7 @@
 .search-active .entry-hero{display:none}
 body.keyboard-open .service-bottom{visibility:hidden}
 .compare-results{max-height:min(320px,40dvh);overscroll-behavior:contain}
+#compare-search{scroll-margin-top:76px} /* t294u: 포커스 시 상단 고정 바에 검색창이 가리지 않도록 */
 .compare-periods,.compare-basis{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .compare-periods button,.compare-basis button{min-height:44px;border:1px solid #368a79;border-radius:10px;padding:9px 13px;background:#0a2632;color:#eaf3f1;font:inherit;cursor:pointer}
 .compare-periods button[aria-pressed=true],.compare-basis button[aria-pressed=true]{background:#1c6655;border-color:#83f1cb}

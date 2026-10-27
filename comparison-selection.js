@@ -9,6 +9,28 @@
   function invalidate() { sequence++; current = null; $('comparison-output').hidden = true; $('comparison-results').hidden = true; $('comparison-chart').replaceChildren(); $('comparison-table').replaceChildren(); $('comparison-available').replaceChildren(); $('compare-ready').textContent = ''; }
   const ready = () => etfs.size >= 1 && etfs.size + markets.size >= 2;
   const normalize = value => String(value).toLocaleLowerCase().replace(/\s+/g, '');
+  /* t294u: 한글 IME 조합 중 마지막 글자(예: '미국' 입력 중 '믹', '미ㄱ')도 같은 검색 데이터에서 찾도록 보정 */
+  const CHO='ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ', JONG=['','ㄱ','ㄲ','ㄱㅅ','ㄴ','ㄴㅈ','ㄴㅎ','ㄷ','ㄹ','ㄹㄱ','ㄹㅁ','ㄹㅂ','ㄹㅅ','ㄹㅌ','ㄹㅍ','ㄹㅎ','ㅁ','ㅂ','ㅂㅅ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+  const cho = ch => { const c = ch.charCodeAt(0) - 0xAC00; return c >= 0 && c < 11172 ? CHO[Math.floor(c / 588)] : ''; };
+  function lastOk(n, after, last) { /* n: 데이터의 해당 글자, last: 입력 중인 마지막 글자 */
+    if (n === last) return true;
+    const L = last.charCodeAt(0) - 0xAC00, N = n.charCodeAt(0) - 0xAC00;
+    if (CHO.includes(last)) return cho(n) === last;
+    if (L < 0 || L >= 11172) return false;
+    const lj = L % 28, lb = L - lj;
+    if (N >= 0 && N < 11172 && N - N % 28 === lb && (lj === 0 || JONG[N % 28].startsWith(JONG[lj]))) return true; /* 받침이 아직 안 붙었거나 겹받침 진행 중 */
+    if (!lj || !(N >= 0 && N < 11172)) return false;
+    const j = JONG[lj], keep = j.length > 1 ? JONG.indexOf(j[0]) : 0; /* 받침이 다음 글자 초성으로 넘어갈 자리 */
+    return N - N % 28 === lb && N % 28 === keep && cho(after) === j.slice(-1);
+  }
+  function matches(text, q) {
+    if (!q || text.includes(q)) return true;
+    const last = q.slice(-1), head = q.slice(0, -1);
+    if (!/[\uAC00-\uD7A3\u3131-\u314E]/.test(last)) return false;
+    for (let i = text.indexOf(head); i >= 0 && i + head.length < text.length; i = text.indexOf(head, i + 1)) if (lastOk(text.charAt(i + head.length), text.charAt(i + head.length + 1), last)) return true;
+    return false;
+  }
+
   function update() {
     results.replaceChildren(); selected.replaceChildren();
     const q = normalize(input.value.trim());
@@ -17,14 +39,14 @@
     else if (failed) $('compare-search-status').textContent = '종목 목록을 읽지 못했습니다. 새로고침해 주세요.';
     else if (!catalog) $('compare-search-status').textContent = '종목 목록을 읽는 중…';
     else {
-      const rows = catalog.filter(r => normalize(r.ticker).includes(q) || normalize(r.name).includes(q));
+      const rows = catalog.filter(r => matches(normalize(r.ticker), q) || matches(normalize(r.name), q));
       $('compare-search-status').textContent = rows.length ? '검색 결과 ' + rows.length + '개' : '검색 결과가 없습니다.';
       for (const row of rows) {
         const li = document.createElement('li'), button = document.createElement('button'), main = document.createElement('span'), name = document.createElement('b'), code = document.createElement('small'), action = document.createElement('em');
         name.textContent = row.name; code.textContent = row.ticker; main.append(name, code);
         action.textContent = etfs.has(row.ticker) ? '선택됨' : '추가'; button.className = 'compare-result'; button.type = 'button';
         button.disabled = etfs.has(row.ticker) || etfs.size >= 3; button.append(main, action);
-        button.addEventListener('click', () => { if (etfs.size >= 3 || etfs.has(row.ticker)) return; etfs.set(row.ticker,row); invalidate(); open = false; input.blur(); update(); });
+        button.addEventListener('click', () => { if (etfs.size >= 3 || etfs.has(row.ticker)) return; etfs.set(row.ticker,row); input.value = ''; invalidate(); open = false; input.blur(); update(); });
         li.append(button); results.append(li);
       }
     }
@@ -52,6 +74,7 @@
     }).catch(() => { support.set(code,{available:false}); markets.delete(code); caption.textContent = '선택 불가 · 로컬 NAV/분배 자료 확인 실패'; update(); });
   }
   input.addEventListener('input',update);
+  input.addEventListener('compositionend',update); /* t294u: 조합 종료 후 input 이벤트가 없는 키보드 대비 */
   input.addEventListener('focus',()=>{open=true;update();input.scrollIntoView({block:'start',behavior:'smooth'});});
   input.addEventListener('blur',()=>setTimeout(()=>{if(document.activeElement!==input&&!results.contains(document.activeElement)){open=false;update();}},180));
   results.addEventListener('pointerdown',event=>{if(event.target.closest('button'))event.preventDefault();});
