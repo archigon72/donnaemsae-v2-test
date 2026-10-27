@@ -65,3 +65,12 @@ body.pv3 #app>main{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))!
 .tp .tp-nb,.tp .tp-na{font-size:11.5px;line-height:1.45;color:#aab6c8}
 .tp .tp-miss,.tp .tp-na,.tp .tp-dnote{overflow-wrap:anywhere;word-break:break-all}
 .tp .tp-mets .dv-in{display:block;margin-top:6px;padding:4px 0 0;border:0;background:none;color:#FFC94D;font-size:11.5px;font-weight:700;text-align:left;white-space:nowrap}
+/* t287 A: 칩·범례 색 견본 = SVG fill(HEX 고정). 배경색 기반 견본은 강제 다크모드에서 어두워질 수 있어 사용 안 함 */
+.bp-ck i,.bp-ck.on i,.bp-ck:has(input:checked) i{border:0!important;background:none!important;display:block}
+.bp-ck i .bp-sw{display:block;width:13px;height:13px}
+.bp-ck .bp-sq{fill-opacity:0}
+.bp-ck.on .bp-sq,.bp-ck:has(input:checked) .bp-sq{fill-opacity:1}
+.bp-lg i{background:none!important;display:block;overflow:hidden}
+.bp-lg i .bp-sw{display:block;width:100%;height:100%}
+.tp .tp-pxd,.tp-pxd{display:block;margin-top:2px;font-size:11.5px;line-height:1.45}.tp-pxd span{white-space:nowrap}
+.bp-scope{color:#cfd8e3}
