@@ -74,3 +74,13 @@ body.pv3 #app>main{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))!
 .bp-lg i .bp-sw{display:block;width:100%;height:100%}
 .tp .tp-pxd,.tp-pxd{display:block;margin-top:2px;font-size:11.5px;line-height:1.45}.tp-pxd span{white-space:nowrap}
 .bp-scope{color:#cfd8e3}
+/* t289 B3 안1: 누적 총손익·기간 손익 분리 */
+.tp .tp-lb small{display:block;font-size:11px;font-weight:600;color:#cfd8e3}
+.tp .tp-acq{display:block;font-size:11px;color:#cfd8e3;margin-top:4px;line-height:1.4}
+.tp .tp-prd{margin-top:10px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.25);display:grid;gap:2px}
+.tp .tp-prd .tp-plb{font-size:13px;font-weight:800;color:#fff}
+.tp .tp-prd>b{font-size:18px;font-weight:900;white-space:nowrap}
+.tp .tp-prd small{font-size:11px;line-height:1.4;overflow-wrap:anywhere}
+.tp .tp-na0{color:#cfd8e3}
+.tp .tp-mets [data-tile="pl"] small span{white-space:nowrap}
+.bp-rt em{font-style:normal;font-size:11px;color:#cfd8e3}
