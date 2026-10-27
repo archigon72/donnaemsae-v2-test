@@ -84,3 +84,21 @@ body.pv3 #app>main{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))!
 .tp .tp-na0{color:#cfd8e3}
 .tp .tp-mets [data-tile="pl"] small span{white-space:nowrap}
 .bp-rt em{font-style:normal;font-size:11px;color:#cfd8e3}
+/* t289u: 기술 설명 접힘 · 자산 카드 위로 */
+.tp .tp-rl{display:flex;justify-content:center;align-items:baseline;gap:6px;font-size:12px;color:#cfdad6}
+.tp .tp-rl .tp-amt{display:inline;font-size:18px}
+.tp .tp-trc{padding-bottom:10px}
+.tp .tp-more{margin-top:4px;font-size:11px;color:#cfd8e3;text-align:left}
+.tp .tp-more>summary{cursor:pointer;list-style:none;font-size:11.5px;color:#9fe3c8;text-align:center;padding:4px 0;min-height:24px}
+.tp .tp-more>summary::-webkit-details-marker{display:none}
+.tp .tp-more>summary::after{content:' ▾'}.tp .tp-more[open]>summary::after{content:' ▴'}
+.tp .tp-more>small,.tp .tp-more small{display:block;font-size:11px;line-height:1.45;overflow-wrap:anywhere;margin-top:2px}
+.tp .tp-acq:empty{display:none}
+.tp .tp-prdc{padding:10px 14px!important}
+.tp .tp-prdc .tp-prd{margin-top:0;padding-top:0;border-top:0;text-align:center}
+.tp .tp-prdc:not(:has(.tp-prd)):not(:has(.tp-miss)){display:none}
+.tp .tp-why1{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tp .tp-miss{margin:6px 0 0}
+.tp .tp-lb small{display:inline}
+.tp .tp-sh>div{min-width:0;flex:1 1 auto}.tp .tp-sh>select,.tp .tp-sh>*:last-child{flex:0 0 auto}
+.tp .tp-pxd span{white-space:normal}
