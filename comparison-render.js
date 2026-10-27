@@ -1,7 +1,7 @@
 /* Original Core indices are rendered directly. No return or reinvestment formulas. */
 window.ComparisonRender = (result, items, basis = 'tr') => {
   const $ = id => document.getElementById(id);
-  const colors = ['#77ecc6','#ffc76b','#79b6ff','#ff91b4','#c6a1ff'];
+  const REF_COLORS={'379800':'#FF83AC','379810':'#B59AFF','069500':'#56B9FF','458730':'#46E5AC'},ETF_COLORS=['#FFC83D','#77ecc6','#ffc76b','#F4F1E8','#ff9f5a'];let etfIx=0;const colors=items.map(it=>it.kind==='reference'&&REF_COLORS[it.code]||ETF_COLORS[(etfIx++)%ETF_COLORS.length]);/* t293A: 비교지수 고정색 */
   const numeric = result.series.flatMap(row => row[basis].map(Number));
   if (numeric.some(n => !Number.isFinite(n))) throw Error('그래프 수치가 유효하지 않습니다.');
   let min = Math.min(...numeric), max = Math.max(...numeric);
