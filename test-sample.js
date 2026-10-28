@@ -1,5 +1,5 @@
 /* 테스트 사이트 전용(배포 사본에만 존재). 첫 접속 시 v2 허브로 이동, 예시 계좌·거래 자동 적재, 상단 안내와 '예시 데이터 다시 불러오기' 버튼. 실제 계좌 정보 없음. */
-(function(){try{var pn=location.pathname;if((/\/$/.test(pn)||/\/index\.html$/.test(pn))&&!location.search&&!sessionStorage.getItem('v2test.landed')){sessionStorage.setItem('v2test.landed','1');location.replace('asset-hub.html');return}}catch(e){}
+(function(){try{var pn=location.pathname;/* t294u: 사이트 안에서 다른 화면을 연 뒤에는 '연구소 대문'(index.html)이 그대로 열리도록 첫 접속 때만 허브로 보냄 */if(!(/\/$/.test(pn)||/\/index\.html$/.test(pn)))sessionStorage.setItem('v2test.landed','1');if((/\/$/.test(pn)||/\/index\.html$/.test(pn))&&!location.search&&!sessionStorage.getItem('v2test.landed')){sessionStorage.setItem('v2test.landed','1');location.replace('asset-hub.html');return}}catch(e){}
 var K='dnmuat194.management.facts.v1',F='v2test.sampleLoaded';
 function load(reload){var x=new XMLHttpRequest();x.open('GET','test-sample-seed.json',false);x.send();if(x.status===200){localStorage.setItem(K,x.responseText);localStorage.setItem(F,'1');if(reload)location.reload()}}
 try{if(!localStorage.getItem(F)&&!localStorage.getItem(K))load(false)}catch(e){}

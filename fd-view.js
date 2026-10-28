@@ -6,6 +6,7 @@ const TABS=[['amount','배당금'],['account','계좌별'],['calendar','캘린�
 const STL={done:'완료',scheduled:'예정',unconfirmed:'확인 필요',held:'보류',ex:'배당락',forecast:'예상'};
 const STX={done:'지급완료(원장 실입금 확정)',scheduled:'지급예정(확정 일정·미수령)',unconfirmed:'지급일 경과 · 실입금 미확정',held:'등록일 경계 보류',ex:'배당락'};
 let ui;try{ui=JSON.parse(sessionStorage.getItem(UIK))||{}}catch{ui={}}
+if(!['reload','back_forward'].includes((()=>{try{const e=performance.getEntriesByType('navigation')[0];if(e)return e.type;const t=performance.navigation&&performance.navigation.type;return t===1?'reload':t===2?'back_forward':'navigate'}catch{return 'navigate'}})())){delete ui.dAcc;delete ui.dCode} /* t294u: 메뉴·링크로 새로 들어오면 계좌·종목 상세 대신 기본 화면 */
 const qs=new URLSearchParams(location.search);const tab=TABS.some(t=>t[0]===qs.get('tab'))?qs.get('tab'):'amount';
 let state,dists,names=new Map(),built,err=null,cutoff='',fc=null;
 function save(){try{sessionStorage.setItem(UIK,JSON.stringify(ui))}catch{}}
