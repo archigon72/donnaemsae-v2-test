@@ -1,7 +1,7 @@
 /* t253: 자산관리 첫 화면 빈 상태 안내(E안). 계좌·거래·배당사용·배당확인 기록이 모두 없는 사용자에게만 표시.
    원장 저장/복원 코드는 호출만 하지 않고 localStorage를 읽기만 함. 기록이 하나라도 생기면 기존 화면 그대로. */
 (function(){'use strict';
-var KEY='dnmuat194.management.facts.v1';
+var KEY='dnmv2.management.facts.v1';
 function isEmpty(){try{var raw=localStorage.getItem(KEY);if(!raw)return true;var s=JSON.parse(raw);
  var n=function(a){return Array.isArray(a)?a.length:0};
  return n(s.accounts)===0&&n(s.transactions)===0&&n(s.dividend_uses)===0&&n(s.dividend_confirmations)===0;}catch(e){return false}}

@@ -1,7 +1,7 @@
 /* 미래배당 3화면 UI (UAT 후보). 원장 읽기 전용: ManagementStorage.load()만 사용, save/reset 호출 없음. */
 (function(){'use strict';
 const L=window.ManagementLedger,T=window.ManagementTax,F=window.FutureDividend,S=window.ManagementStorage;
-const UIK='dnmuat194.fd.ui';const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const UIK='dnmv2.fd.ui';const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const TABS=[['amount','배당금'],['account','계좌별'],['calendar','캘린더']];
 const STL={done:'완료',scheduled:'예정',unconfirmed:'확인 필요',held:'보류',ex:'배당락',forecast:'예상'};
 const STX={done:'지급완료(원장 실입금 확정)',scheduled:'지급예정(확정 일정·미수령)',unconfirmed:'지급일 경과 · 실입금 미확정',held:'등록일 경계 보류',ex:'배당락'};
@@ -36,7 +36,7 @@ function itemCard0(r){const v=F.amt(L,r,ui.basis);const sub=r.state==='held'?esc
  return '<div class="fd-item" data-state="'+r.state+'"><span class="fd-badge '+r.state+'">'+STL[r.state]+'</span><div style="min-width:0"><div class="nm">'+esc(nm(r.code))+'</div><div class="sub">'+sub+'</div><div class="sub">'+dl+'</div></div><div class="amt">'+(r.undecided?'금액 미정':v==null?'—':X(v))+'<small>'+taxl+'</small></div></div>'}
 /* t283ua4: 자동(CORE 분배금×권리수량) 위에 실수령 보정(EVK: 기존 이 기기 전용 증권사 입금 증빙 키, 원장·백업 밖) 우선 적용.
    종목별 보정(codes) = 해당 지급건을 '완료'로, 보정값 우선 / 계좌·월 합계(종목 미상) = 그 달 계좌 합계를 대체(종목에 배분하지 않음) / 해외·비정기 직접 입력 = 계좌·월·종목·원화 실수령(환율 근거 텍스트). 관리 화면 rcCore와 같은 규칙. */
-const EVK='dnmuat194.receipt.evidence.v1';
+const EVK='dnmv2.receipt.evidence.v1';
 function evLoad(){try{const d=JSON.parse(localStorage.getItem(EVK));return d&&Array.isArray(d.items)?d.items:[]}catch{return []}}
 function evStore(items){localStorage.setItem(EVK,JSON.stringify({version:1,items}))}
 const lastDay=m=>{const [y,mo]=m.split('-').map(Number);return m+'-'+pad(new Date(Date.UTC(y,mo,0)).getUTCDate())};

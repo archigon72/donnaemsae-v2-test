@@ -2,7 +2,7 @@
 (function(){
 'use strict';
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('uat-sw.js').catch(()=>{}));
-const prefix='dnmuat194.ui.'+new URL('.',location.href).pathname;
+const prefix='dnmv2.ui.'+new URL('.',location.href).pathname;
 const read=(key,fallback)=>{try{return JSON.parse(sessionStorage.getItem(prefix+key))??fallback}catch{return fallback}};
 const write=(key,value)=>{try{sessionStorage.setItem(prefix+key,JSON.stringify(value))}catch{}};
 const code=v=>/^[0-9A-Z]{6}$/.test(v||'')?v:null;

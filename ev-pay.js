@@ -1,4 +1,4 @@
-/* t293B: 받은 배당(실수령) 지급 건 단위 저장 공용 모듈. 저장 키 EVK(dnmuat194.receipt.evidence.v1) · version 1 그대로, 필드만 추가(하위호환).
+/* t293B: 받은 배당(실수령) 지급 건 단위 저장 공용 모듈. 저장 키 EVK(dnmv2.receipt.evidence.v1) · version 1 그대로, 필드만 추가(하위호환).
    item = {account_id, month, amount(계좌·월 합계, 기존 의미 유지), codes{종목:원화 합계, 기존 의미 유지}, notes{기존 종목별 메모}, pays[지급 건], source, at}
    pays[] = {id, code, date, amount(원화 세후), currency, amount_fx, fx, kind, at} — 같은 계좌·종목·월이라도 지급일이 다르면 별도 건.
    불변식: codes[c] = (기존 단일 기록분) + Σpays(c).amount, amount = (기존 계좌·월 합계 잔여, 종목 미상) + Σcodes → 기존 리더(rcCore·overlay)의 합계는 그대로 맞고 이중 합산 없음.
